@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
 
     public float speed;
+    public Object Goo;
     private Rigidbody2D rb;
     private Vector2 moveVelocity;
 
@@ -17,6 +18,11 @@ public class PlayerMovement : MonoBehaviour {
 	void Update () {
         Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"),Input.GetAxisRaw("Vertical"));
         moveVelocity = moveInput.normalized * speed;
+
+        if(Input.GetKey("space"))
+        {
+            Instantiate(Goo, transform.position, transform.rotation);
+        }
 	}
 
     private void FixedUpdate()
