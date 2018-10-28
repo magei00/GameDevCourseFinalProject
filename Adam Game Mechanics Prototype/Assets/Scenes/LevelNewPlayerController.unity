@@ -1314,7 +1314,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 848ba054e9125f6428f2817cef951a9e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1322,7 +1322,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1011067700
@@ -1377,6 +1377,8 @@ MonoBehaviour:
   gravityModifier: 2
   maxSpeed: 6
   jumpTakeOffSpeed: 7
+  adam: {fileID: 21300000, guid: 848ba054e9125f6428f2817cef951a9e, type: 3}
+  couch: {fileID: 21300000, guid: 7c3396e24a5678140b68f5862f7512fa, type: 3}
 --- !u!70 &1011067703
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1399,7 +1401,7 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1011067697}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 157e0a4fa2cc0f4419b9dcb83c19c78a, type: 2}
   m_CullingMode: 0
@@ -1652,7 +1654,7 @@ SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1283699668}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -1727,7 +1729,7 @@ SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1332423804}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -1916,8 +1918,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3bd2f97ec9b9cf44a68946b41433540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1011067697}
   switchMenu: {fileID: 1642536890}
-  player: {fileID: 0}
   pauseMenu: {fileID: 1416381103}
 --- !u!1 &1504636294
 GameObject:
