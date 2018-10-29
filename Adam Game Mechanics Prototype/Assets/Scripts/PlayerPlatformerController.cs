@@ -9,17 +9,25 @@ public class PlayerPlatformerController : PhysicsObject {
 
     private SpriteRenderer spriteRenderer;
     private Animator animator;
+    private int characterIndex;
+    //private Sprite[]  sprites = Resources.LoadAll<Sprite>("Pixel Art");
+    public Sprite adam;
+    public Sprite couch;
 
     void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        characterIndex = 1;
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        //adam = Resources.Load("Assets/Pixel Art/Player/Adam/Idle/adam_idle.png", typeof(Sprite)) as Sprite;
+        //couch = Resources.Load("Assets/Pixel Art/Player/Character2/Idle/couch_idle.png", typeof(Sprite)) as Sprite;
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     protected override void ComputeVelocity()
     {
         Vector2 move = Vector2.zero;
-
+        
         move.x = Input.GetAxis("Horizontal");
 
         if (Input.GetButtonDown("Jump") && grounded)
@@ -48,4 +56,25 @@ public class PlayerPlatformerController : PhysicsObject {
         targetVelocity = move * maxSpeed;
     }
 
+    public void switchChar(int i)
+    {
+        characterIndex = i;
+        switch (i)
+        {
+            case 1:
+                gravityModifier = 2f;
+                jumpTakeOffSpeed = 7;
+                spriteRenderer.sprite = adam;
+                break;
+            case 2:
+                gravityModifier = 0.7f;
+                jumpTakeOffSpeed = 0;
+                spriteRenderer.sprite = couch;
+                break;
+            default:
+                break;
+        }
+        
+
+    }
 }

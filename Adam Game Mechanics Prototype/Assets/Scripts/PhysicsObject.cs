@@ -5,7 +5,7 @@ using UnityEngine;
 public class PhysicsObject : MonoBehaviour {
 
     public float minGroundNormalY = 0.65f; 
-    public float gravityModifier = 1f;
+    public float gravityModifier = 2f;
 
     protected Vector2 targetVelocity; //horizontal, where is our object going to move?
     protected bool grounded; //is the player grounded or not?
@@ -55,6 +55,7 @@ public class PhysicsObject : MonoBehaviour {
         //Move object down every frame because of gravity
         velocity += gravityModifier * Physics2D.gravity * Time.deltaTime;
         //horizontal movement
+        Debug.Log(gravityModifier);
         velocity.x = targetVelocity.x;
 
         //we first test the movement on the X-axis
