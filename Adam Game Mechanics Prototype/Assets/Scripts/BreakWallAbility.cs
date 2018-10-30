@@ -14,13 +14,14 @@ public class BreakWallAbility : IAbility {
 	}
 	
 
-  override public void PerformAbility()
+  override public void PerformAbility(MonoBehaviour obj)
   {
-    if (Input.GetKeyDown(KeyCode.F))
-    {
+    if (!characterController)
+      characterController = obj.GetComponent<PlayerPlatformerController>();
       Debug.Log("PRESSED");
-      Vector2 startPos = new Vector2(0.0f, transform.position.y);
-      startPos.x = characterController.spriteRenderer.flipX ? transform.position.x + 1.25f : transform.position.x - 1.25f;
+      Vector2 startPos = new Vector2(0.0f, obj.transform.position.y);
+    Debug.Log(characterController.spriteRenderer);
+      startPos.x = characterController.spriteRenderer.flipX ? obj.transform.position.x + 1.25f : obj.transform.position.x - 1.25f;
       Vector2 dir = characterController.spriteRenderer.flipX ? new Vector2(1.0f, 0.0f) : new Vector2(-1.0f, 0.0f);
       RaycastHit2D hit = Physics2D.Raycast(startPos, -dir, abilityLength);
       Debug.Log(dir);
@@ -30,7 +31,6 @@ public class BreakWallAbility : IAbility {
         Debug.Log("HIT!");
         Destroy(hit.collider.gameObject);
       }
-    }
 
   }
 

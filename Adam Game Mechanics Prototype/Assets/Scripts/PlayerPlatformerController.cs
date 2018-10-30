@@ -18,7 +18,7 @@ public IAbility[] abilities = new IAbility[4];
   
 void Awake()
 {
-    characterIndex = 1;
+    characterIndex = 0;
     spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     animator = GetComponent<Animator>();
     //adam = Resources.Load("Assets/Pixel Art/Player/Adam/Idle/adam_idle.png", typeof(Sprite)) as Sprite;
@@ -36,7 +36,8 @@ void Awake()
   protected override void Update()
   {
     base.Update();
-    abilities[characterIndex].PerformAbility();
+    if (Input.GetKeyDown(KeyCode.F))
+      abilities[characterIndex].PerformAbility(this);
 
   }
 
@@ -79,12 +80,12 @@ public void switchChar(int i)
     characterIndex = i;
     switch (i)
     {
-        case 1:
+        case 0:
             gravityModifier = 2f;
             jumpTakeOffSpeed = 7;
             spriteRenderer.sprite = adam;
             break;
-        case 2:
+        case 1:
             gravityModifier = 0.7f;
             jumpTakeOffSpeed = 0;
             spriteRenderer.sprite = couch;

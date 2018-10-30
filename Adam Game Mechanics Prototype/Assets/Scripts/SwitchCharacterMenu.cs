@@ -25,11 +25,11 @@ public class SwitchCharacterMenu : MonoBehaviour {
 
             if (Input.GetButtonDown("Character1"))
             {
-                player.GetComponent<PlayerPlatformerController>().switchChar(1);
+                player.GetComponent<PlayerPlatformerController>().switchChar(0);
             }
             else if (Input.GetButtonDown("Character2"))
             {
-                player.GetComponent<PlayerPlatformerController>().switchChar(2);
+                player.GetComponent<PlayerPlatformerController>().switchChar(1);
             }
 
         }
