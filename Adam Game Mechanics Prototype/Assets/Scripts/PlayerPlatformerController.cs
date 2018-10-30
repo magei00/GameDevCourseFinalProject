@@ -10,7 +10,6 @@ public float jumpTakeOffSpeed = 7;
 public SpriteRenderer spriteRenderer;
 private Animator animator;
 private int characterIndex;
-//private Sprite[]  sprites = Resources.LoadAll<Sprite>("Pixel Art");
 public Sprite adam;
 public Sprite couch;
 
@@ -21,8 +20,6 @@ void Awake()
     characterIndex = 0;
     spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     animator = GetComponent<Animator>();
-    //adam = Resources.Load("Assets/Pixel Art/Player/Adam/Idle/adam_idle.png", typeof(Sprite)) as Sprite;
-    //couch = Resources.Load("Assets/Pixel Art/Player/Character2/Idle/couch_idle.png", typeof(Sprite)) as Sprite;
     spriteRenderer = GetComponent<SpriteRenderer>();
     abilities = new IAbility[4];
     abilities[0] = new EmptyAbility();
