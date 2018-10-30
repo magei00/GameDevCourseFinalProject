@@ -7,10 +7,10 @@ public class BreakWallAbility : IAbility {
   public float abilityLength = 1.0f;
 
 
-  private CharacterController2D characterController;
+  private PlayerPlatformerController characterController;
 	// Use this for initialization
 	void Start () {
-    characterController = GetComponent<CharacterController2D>();
+    characterController = GetComponent<PlayerPlatformerController>();
 	}
 	
 
@@ -20,8 +20,8 @@ public class BreakWallAbility : IAbility {
     {
       Debug.Log("PRESSED");
       Vector2 startPos = new Vector2(0.0f, transform.position.y);
-      startPos.x = characterController.m_FacingRight ? transform.position.x + 1.25f : transform.position.x - 1.25f;
-      Vector2 dir = characterController.m_FacingRight ? new Vector2(1.0f, 0.0f) : new Vector2(-1.0f, 0.0f);
+      startPos.x = characterController.spriteRenderer.flipX ? transform.position.x + 1.25f : transform.position.x - 1.25f;
+      Vector2 dir = characterController.spriteRenderer.flipX ? new Vector2(1.0f, 0.0f) : new Vector2(-1.0f, 0.0f);
       RaycastHit2D hit = Physics2D.Raycast(startPos, -dir, abilityLength);
       Debug.Log(dir);
       Debug.DrawRay(startPos, dir, Color.black, abilityLength, false);

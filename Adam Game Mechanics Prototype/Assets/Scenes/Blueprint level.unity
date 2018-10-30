@@ -505,7 +505,7 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 0}
+  m_LookAt: {fileID: 1011067700}
   m_Follow: {fileID: 1011067700}
   m_Lens:
     FieldOfView: 40
@@ -1258,6 +1258,7 @@ MonoBehaviour:
   m_GroundCheck: {fileID: 1338124350}
   m_CeilingCheck: {fileID: 1504636295}
   m_CrouchDisableCollider: {fileID: 0}
+  m_FacingRight: 1
   OnLandEvent:
     m_PersistentCalls:
       m_Calls:
@@ -1377,8 +1378,10 @@ MonoBehaviour:
   gravityModifier: 2
   maxSpeed: 6
   jumpTakeOffSpeed: 7
+  spriteRenderer: {fileID: 0}
   adam: {fileID: 21300000, guid: 848ba054e9125f6428f2817cef951a9e, type: 3}
   couch: {fileID: 21300000, guid: 7c3396e24a5678140b68f5862f7512fa, type: 3}
+  abilities: []
 --- !u!70 &1011067703
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
