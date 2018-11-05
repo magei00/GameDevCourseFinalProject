@@ -43,7 +43,6 @@ void Awake()
   protected override void ComputeVelocity()
 {
     Vector2 move = Vector2.zero;
-    Debug.Log("Velocity");
     move.x = Input.GetAxis("Horizontal");
 
     if (Input.GetButtonDown("Jump") && grounded)
@@ -91,7 +90,7 @@ public void switchChar(int i)
         default:
             break;
     }
-        
-
 }
+
+
 }

@@ -11,7 +11,6 @@ public class NextLevel : MonoBehaviour {
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("pressed");
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
@@ -21,12 +20,4 @@ public class NextLevel : MonoBehaviour {
 		
 	}
 	
-	// Update is called once per frame
-	void FixedUpdate () {
-        NextLevelButton = Input.GetButtonDown("NextLevel");
-        if(NextLevelButton)
-        {
-            Debug.Log("next level");
-        }
-	}
 }
