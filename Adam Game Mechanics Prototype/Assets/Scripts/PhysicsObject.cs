@@ -129,7 +129,7 @@ public class PhysicsObject : MonoBehaviour {
                 if(projection<0)
                 {
                     //cancel out the velocity that would be stopped by the collision
-                    //velocity = velocity - projection * currentNormal;
+                    velocity = velocity - projection * currentNormal;
 
                 }
 

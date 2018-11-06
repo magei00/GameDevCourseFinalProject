@@ -1125,6 +1125,11 @@ Prefab:
       propertyPath: jumpTakeOffSpeed
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 70604406484211266, guid: 8843d1608311a4f47b60e4655f58bcdd,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8843d1608311a4f47b60e4655f58bcdd, type: 2}
   m_IsPrefabAsset: 0
@@ -1249,7 +1254,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3bd2f97ec9b9cf44a68946b41433540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   switchMenu: {fileID: 1642536890}
   pauseMenu: {fileID: 1416381103}
 --- !u!212 &1534532570 stripped

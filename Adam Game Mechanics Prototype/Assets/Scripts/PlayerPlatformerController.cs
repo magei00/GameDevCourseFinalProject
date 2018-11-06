@@ -7,6 +7,7 @@ public class PlayerPlatformerController : PhysicsObject {
 public float maxSpeed = 7;
 public float jumpTakeOffSpeed = 7;
 
+
 public SpriteRenderer spriteRenderer;
 private Animator animator;
 private int characterIndex;
@@ -18,7 +19,6 @@ public IAbility[] abilities = new IAbility[4];
 void Awake()
 {
     characterIndex = 0;
-    spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     animator = GetComponent<Animator>();
     spriteRenderer = GetComponent<SpriteRenderer>();
     abilities = new IAbility[4];
