@@ -8,18 +8,21 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MenuScene.unity
     guid: 3a381115f76664644a26e0264bbb0068
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/OldLevels/OldLevel1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/OldLevels/OldLevel2.unity
     guid: af37af324cd6f3c4b90cc15b78ca304a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/OldLevels/OldLevel3.unity
     guid: 802bef719e4a7084b9fe95b1f82e9f8e
   - enabled: 1
     path: Assets/Scenes/Level 1 - Matti.unity
     guid: 29583263ae148a146ae442b39ff3ca4a
+  - enabled: 1
+    path: Assets/Scenes/Level 2.unity
+    guid: b59c0e949919a2b418eddb3a96c120fa
   - enabled: 1
     path: Assets/Scenes/EndGame.unity
     guid: 04fc42a55863ff047a1ad945a1f9e2e1
