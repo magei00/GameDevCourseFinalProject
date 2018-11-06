@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SwitchCharacterMenu : MonoBehaviour {
 
-    public GameObject player;
+    private GameObject player;
     public GameObject switchMenu;
     public PauseMenu pauseMenu;
     private bool GameIsPaused;
@@ -13,6 +13,7 @@ public class SwitchCharacterMenu : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         GameIsPaused = pauseMenu.GameIsPaused;
+        player = GameObject.FindGameObjectWithTag("Player");
 	}
 	
 	// Update is called once per frame
