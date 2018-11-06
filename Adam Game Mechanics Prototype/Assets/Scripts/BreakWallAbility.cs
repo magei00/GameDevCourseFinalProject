@@ -14,7 +14,7 @@ public class BreakWallAbility : IAbility {
 	}
 	
 
-  override public void PerformAbility(MonoBehaviour obj)
+  override public void PerformAbility(PhysicsObject obj)
   {
     if (!characterController)
       characterController = obj.GetComponent<PlayerPlatformerController>();
