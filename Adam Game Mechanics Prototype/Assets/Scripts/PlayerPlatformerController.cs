@@ -13,6 +13,8 @@ private int characterIndex;
 public Sprite adam;
 public Sprite couch;
 
+public Sprite char3;
+
 public IAbility[] abilities = new IAbility[4];
   
 void Awake()
@@ -24,9 +26,7 @@ void Awake()
     abilities = new IAbility[4];
     abilities[0] = new EmptyAbility();
     abilities[1] = new BreakWallAbility();
-
-
-        
+    abilities[2] = new ReverseGravityAbility();     
 }
 
 
@@ -35,7 +35,6 @@ void Awake()
     base.Update();
     if (Input.GetKeyDown(KeyCode.F))
       abilities[characterIndex].PerformAbility(this);
-
   }
 
 
@@ -85,12 +84,13 @@ public void switchChar(int i)
             gravityModifier = 0.7f;
             jumpTakeOffSpeed = 0;
             spriteRenderer.sprite = couch;
-                
+            break;
+        case 2:
+            gravityModifier = -2f;
+            spriteRenderer.sprite = char3;
             break;
         default:
             break;
     }
 }
-
-
 }

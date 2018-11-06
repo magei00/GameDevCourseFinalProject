@@ -4,5 +4,5 @@ using UnityEngine;
 
 public abstract class IAbility : MonoBehaviour {
 
-  public abstract void PerformAbility(MonoBehaviour obj);
+  public abstract void PerformAbility(PhysicsObject obj);
 }

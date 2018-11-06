@@ -14,7 +14,7 @@ public class ReverseGravityAbility : IAbility {
   {
     if (!characterController)
       characterController = obj.GetComponent<PlayerPlatformerController>();
-      obj.gravityModifier *= -1;
-      characterController.spriteRenderer.flipY = !characterController.spriteRenderer.flipY;
+    obj.gravityModifier *= -1;
+    characterController.spriteRenderer.flipY = !characterController.spriteRenderer.flipY;
   }
 }
