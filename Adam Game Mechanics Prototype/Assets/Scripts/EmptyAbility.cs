@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EmptyAbility : IAbility{
 
-  public override void PerformAbility(MonoBehaviour obj)
+  public override void PerformAbility(PhysicsObject obj)
   {
     return;
   }

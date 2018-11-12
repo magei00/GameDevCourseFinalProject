@@ -7,26 +7,26 @@ public class PlayerPlatformerController : PhysicsObject {
 public float maxSpeed = 7;
 public float jumpTakeOffSpeed = 7;
 
+
 public SpriteRenderer spriteRenderer;
 private Animator animator;
 private int characterIndex;
 public Sprite adam;
 public Sprite couch;
 
+public Sprite char3;
+
 public IAbility[] abilities = new IAbility[4];
   
 void Awake()
 {
     characterIndex = 0;
-    spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     animator = GetComponent<Animator>();
     spriteRenderer = GetComponent<SpriteRenderer>();
     abilities = new IAbility[4];
     abilities[0] = new EmptyAbility();
     abilities[1] = new BreakWallAbility();
-
-
-        
+    abilities[2] = new ReverseGravityAbility();     
 }
 
 
@@ -35,7 +35,6 @@ void Awake()
     base.Update();
     if (Input.GetKeyDown(KeyCode.F))
       abilities[characterIndex].PerformAbility(this);
-
   }
 
 
@@ -43,7 +42,7 @@ void Awake()
   protected override void ComputeVelocity()
 {
     Vector2 move = Vector2.zero;
-    move.x = Input.GetAxis("Horizontal");
+    move.x = Input.GetAxisRaw("Horizontal");
 
     if (Input.GetButtonDown("Jump") && grounded)
     {
@@ -65,8 +64,8 @@ void Awake()
         spriteRenderer.flipX = !spriteRenderer.flipX;
     }
 
-    animator.SetBool("grounded", grounded);
-    animator.SetFloat("velocityX", Mathf.Abs(velocity.x) / maxSpeed);
+    //animator.SetBool("grounded", grounded);
+    //animator.SetFloat("velocityX", Mathf.Abs(velocity.x) / maxSpeed);
 
     targetVelocity = move * maxSpeed;
 }
@@ -85,12 +84,13 @@ public void switchChar(int i)
             gravityModifier = 0.7f;
             jumpTakeOffSpeed = 0;
             spriteRenderer.sprite = couch;
-                
+            break;
+        case 2:
+            gravityModifier = -2f;
+            spriteRenderer.sprite = char3;
             break;
         default:
             break;
     }
 }
-
-
 }
