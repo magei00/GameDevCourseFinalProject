@@ -23,10 +23,8 @@ void Awake()
     characterIndex = 0;
     animator = GetComponent<Animator>();
     spriteRenderer = GetComponent<SpriteRenderer>();
-    abilities = new IAbility[4];
-    abilities[0] = new EmptyAbility();
-    abilities[1] = new BreakWallAbility();
-    abilities[2] = new ReverseGravityAbility();     
+    abilities[0] = GetComponent<EmptyAbility>();
+    abilities[1] = GetComponent<BreakWallAbility>();
 }
 
 
@@ -77,7 +75,7 @@ public void switchChar(int i)
     {
         case 0:
             gravityModifier = 2f;
-            jumpTakeOffSpeed = 7;
+            jumpTakeOffSpeed = 14;
             spriteRenderer.sprite = adam;
             break;
         case 1:

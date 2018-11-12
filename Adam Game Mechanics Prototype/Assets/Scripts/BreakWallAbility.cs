@@ -2,36 +2,81 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BreakWallAbility : IAbility {
+public class BreakWallAbility : IAbility
+{
 
-  public float abilityLength = 1.0f;
+  public float maxDashDuration = 0.25f;
+  public float dashSpeed = 10.0f;
+  public float dashCooldown = 1.0f;
+
+  private float dashTimer;
+  private float cooldownTimer;
+  private bool isDashing;
+  
 
 
   private PlayerPlatformerController characterController;
-	// Use this for initialization
-	void Start () {
+  private Rigidbody2D rb;
+  // Use this for initialization
+  void Start()
+  {
     characterController = GetComponent<PlayerPlatformerController>();
-	}
-	
+    rb = GetComponent<Rigidbody2D>();
+    isDashing = false;
+    dashTimer = maxDashDuration;
+    cooldownTimer = 0.0f;
+      Debug.Log("Reducing cooldown");
+  }
+
+  void Update()
+  {
+
+    if (cooldownTimer > 0.0f)
+    {
+      cooldownTimer -= Time.deltaTime;
+    }
+    if (!isDashing)
+      return;
+    if (dashTimer > 0.0f)
+    {
+      Vector2 dashDirection = characterController.spriteRenderer.flipX ? Vector2.left : Vector2.right;
+      rb.velocity = dashDirection * dashSpeed;
+      Debug.Log("DASHING");
+      dashTimer -= Time.deltaTime;
+      isDashing = true;
+    }
+    else
+    {
+      isDashing = false;
+      rb.velocity = new Vector2(0.0f, 0.0f);
+      Debug.Log("Stopping");
+      cooldownTimer = dashCooldown;
+      dashTimer = maxDashDuration;
+    }
+  }
+
+
 
   override public void PerformAbility(PhysicsObject obj)
   {
+
     if (!characterController)
       characterController = obj.GetComponent<PlayerPlatformerController>();
-      Debug.Log("PRESSED");
-      Vector2 startPos = new Vector2(0.0f, obj.transform.position.y);
-    Debug.Log(characterController.spriteRenderer);
-      startPos.x = characterController.spriteRenderer.flipX ? obj.transform.position.x + 1.25f : obj.transform.position.x - 1.25f;
-      Vector2 dir = characterController.spriteRenderer.flipX ? new Vector2(1.0f, 0.0f) : new Vector2(-1.0f, 0.0f);
-      RaycastHit2D hit = Physics2D.Raycast(startPos, -dir, abilityLength);
-      Debug.Log(dir);
-      Debug.DrawRay(startPos, dir, Color.black, abilityLength, false);
-      if (hit && hit.collider.gameObject.tag == "BreakableWall")
-      {
-        Debug.Log("HIT!");
-        Destroy(hit.collider.gameObject);
-      }
+    if(cooldownTimer > 0.0f)
+    {
+      Debug.Log("COOLDOWN");
+      return;
+    }
+    isDashing = true;
 
   }
 
+  public void OnCollisionEnter2D(Collision2D other)
+  {
+    if(isDashing && other.gameObject.tag == "Breakable")
+    {
+      Destroy(other.gameObject);
+    }
+    Debug.Log("DASHING HIIIIIIIIIIIIT");
+  }
 }

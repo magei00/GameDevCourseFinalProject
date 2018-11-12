@@ -104,7 +104,7 @@ public class SecruityCameraController : MonoBehaviour {
     if (hit && hit.collider != gameObject && hit.collider.tag != "Player")
     {
       Debug.DrawLine(spotLightTransform.position, hit.point);
-      Debug.Log(hit.collider.tag);
+      //Debug.Log(hit.collider.tag);
       Vector3 rightSide = hit.point - new Vector2(transform.position.x, transform.position.y);
       nVertices[2] = rightSide;
     }

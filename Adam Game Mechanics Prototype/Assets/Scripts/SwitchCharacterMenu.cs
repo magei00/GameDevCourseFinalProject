@@ -40,7 +40,6 @@ public class SwitchCharacterMenu : MonoBehaviour {
         else
         {
             switchMenu.SetActive(false);
-            Debug.Log("You released X");
 
             Time.timeScale = 1f;
 

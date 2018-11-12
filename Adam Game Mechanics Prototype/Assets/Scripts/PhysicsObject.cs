@@ -55,7 +55,7 @@ public class PhysicsObject : MonoBehaviour {
         //Move object down every frame because of gravity
         velocity += gravityModifier * Physics2D.gravity * Time.deltaTime;
         //horizontal movement
-        Debug.Log(gravityModifier);
+        //Debug.Log(gravityModifier);
         velocity.x = targetVelocity.x;
 
         //we first test the movement on the X-axis
