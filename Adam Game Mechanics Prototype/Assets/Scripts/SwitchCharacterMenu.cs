@@ -27,6 +27,7 @@ public class SwitchCharacterMenu : MonoBehaviour {
             if (Input.GetButtonDown("Character1"))
             {
                 player.GetComponent<PlayerPlatformerController>().switchChar(0);
+                Debug.Log("char 1");
             }
             else if (Input.GetButtonDown("Character2"))
             {
@@ -40,7 +41,6 @@ public class SwitchCharacterMenu : MonoBehaviour {
         else
         {
             switchMenu.SetActive(false);
-            Debug.Log("You released X");
 
             Time.timeScale = 1f;
 

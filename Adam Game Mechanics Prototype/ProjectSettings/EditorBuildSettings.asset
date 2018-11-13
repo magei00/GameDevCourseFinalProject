@@ -11,14 +11,20 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 1.unity
     guid: b59c0e949919a2b418eddb3a96c120fa
+<<<<<<< HEAD
   - enabled: 1
     path: Assets/Scenes/Level 2.unity
     guid: 33d5ea5baca569c48af58dd740f4a821
+=======
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+>>>>>>> 02e4d1ac740c2b67e24a9328641206e22ea25a05
   - enabled: 1
     path: Assets/Scenes/Level 3.unity
     guid: 111ed6cef6be94e458d5dbe2fbe31cb0
   - enabled: 1
-    path: Assets/Scenes/Level 4.unity
+    path: Assets/Scenes/guard test level.unity
     guid: 8dc32bee268e2a842a87328fcf0bf9ec
   - enabled: 1
     path: Assets/Scenes/EndGame.unity

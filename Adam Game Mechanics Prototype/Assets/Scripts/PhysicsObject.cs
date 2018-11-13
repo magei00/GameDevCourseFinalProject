@@ -6,10 +6,10 @@ public class PhysicsObject : MonoBehaviour {
 
     public float minGroundNormalY = 0.65f; 
     public float gravityModifier = 2f;
+    public bool grounded; //is the player grounded or not?
+    public Vector2 groundNormal;
 
     protected Vector2 targetVelocity; //horizontal, where is our object going to move?
-    protected bool grounded; //is the player grounded or not?
-    protected Vector2 groundNormal;
     protected Rigidbody2D rb2d;
     protected Vector2 velocity;
     protected ContactFilter2D contactFilter;
@@ -52,10 +52,11 @@ public class PhysicsObject : MonoBehaviour {
 
     void FixedUpdate()
     {
+        
         //Move object down every frame because of gravity
         velocity += gravityModifier * Physics2D.gravity * Time.deltaTime;
         //horizontal movement
-        Debug.Log(gravityModifier);
+        //Debug.Log(gravityModifier);
         velocity.x = targetVelocity.x;
 
         //we first test the movement on the X-axis
@@ -83,7 +84,7 @@ public class PhysicsObject : MonoBehaviour {
         Movement(move, true);
     }
 
-    void Movement(Vector2 move, bool yMovement)
+    public void Movement(Vector2 move, bool yMovement)
     {
         //check if were are going to hit something
         float distance = move.magnitude;
@@ -100,8 +101,12 @@ public class PhysicsObject : MonoBehaviour {
 
             for(int i = 0; i<count; i++)
             {
-                //each entry from the array is going to get copied to the list
-                hitBufferList.Add(hitBuffer[i]);
+        //each entry from the array is going to get copied to the list
+              PlatformEffector2D platform = hitBuffer[i].collider.GetComponent<PlatformEffector2D>();
+                if (!platform || (hitBuffer[i].normal == Vector2.up && velocity.y <= 0))
+                {
+                  hitBufferList.Add(hitBuffer[i]);
+                }
             }
             //now we have a list of objects that are going to overlap our physics object's collider. 
         
@@ -140,6 +145,7 @@ public class PhysicsObject : MonoBehaviour {
 
 
         }
-        rb2d.position = rb2d.position + move.normalized * distance;
+        //rb2d.position = rb2d.position + move.normalized * distance;
+        transform.position = transform.position + new Vector3(move.normalized[0], move.normalized[1], 0) * distance;
     }
 }

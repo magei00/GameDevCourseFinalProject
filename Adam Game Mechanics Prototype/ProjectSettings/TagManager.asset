@@ -7,6 +7,7 @@ TagManager:
   - Door
   - Coin
   - Key
+  - Breakable
   layers:
   - Default
   - TransparentFX
