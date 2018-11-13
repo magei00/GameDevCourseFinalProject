@@ -20,6 +20,7 @@ public IAbility[] abilities = new IAbility[4];
   
 void Awake()
 {
+    Application.targetFrameRate = 300;
     characterIndex = 0;
     animator = GetComponent<Animator>();
     spriteRenderer = GetComponent<SpriteRenderer>();
