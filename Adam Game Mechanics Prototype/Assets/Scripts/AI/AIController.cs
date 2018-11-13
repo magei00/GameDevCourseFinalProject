@@ -25,10 +25,12 @@ public class AIController : PhysicsObject {
     private float chaseTimer;
     public float maxWaitTime = 2.5f;
     private float waitTimer;
+    private SpriteRenderer spriteRenderer;
  
 	// Use this for initialization
 	void Start () {
     target = GameObject.FindGameObjectWithTag("Player").transform;
+    spriteRenderer = GetComponent<SpriteRenderer>();
     currentState = State.Patrolling;
     spawnPosition = transform.position;
     currentDestination = patrolPoint.position;
@@ -41,9 +43,9 @@ public class AIController : PhysicsObject {
     override protected void Update () {
 
         
-        
 
-    switch (currentState)
+
+        switch (currentState)
     {
       case State.Patrolling:
         Patrol();
@@ -133,5 +135,13 @@ public class AIController : PhysicsObject {
   {
     transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y),
       new Vector2(destination.x, transform.position.y), moveSpeed * Time.deltaTime);
-  }
+
+        float xdir= destination.x - transform.position.x;
+
+      bool flipSprite = (spriteRenderer.flipX ? (xdir > 0.00f) : (xdir < 0.00f));
+        if (flipSprite)
+        {
+            spriteRenderer.flipX = !spriteRenderer.flipX;
+        }
+    }
 }
