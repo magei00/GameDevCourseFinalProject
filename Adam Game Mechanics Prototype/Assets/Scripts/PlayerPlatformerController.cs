@@ -27,7 +27,7 @@ void Awake()
     spriteRenderer = GetComponent<SpriteRenderer>();
     abilities[0] = GetComponent<EmptyAbility>();
     abilities[1] = GetComponent<BreakWallAbility>();
-    abilities[2] = GetComponent<BreakWallAbility>();
+    abilities[2] = GetComponent<ReverseGravityAbility>();
 }
 
 

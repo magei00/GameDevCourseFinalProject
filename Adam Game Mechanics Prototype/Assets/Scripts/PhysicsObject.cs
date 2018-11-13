@@ -6,10 +6,10 @@ public class PhysicsObject : MonoBehaviour {
 
     public float minGroundNormalY = 0.65f; 
     public float gravityModifier = 2f;
+    public bool grounded; //is the player grounded or not?
+    public Vector2 groundNormal;
 
     protected Vector2 targetVelocity; //horizontal, where is our object going to move?
-    protected bool grounded; //is the player grounded or not?
-    protected Vector2 groundNormal;
     protected Rigidbody2D rb2d;
     protected Vector2 velocity;
     protected ContactFilter2D contactFilter;
@@ -84,7 +84,7 @@ public class PhysicsObject : MonoBehaviour {
         Movement(move, true);
     }
 
-    void Movement(Vector2 move, bool yMovement)
+    public void Movement(Vector2 move, bool yMovement)
     {
         //check if were are going to hit something
         float distance = move.magnitude;

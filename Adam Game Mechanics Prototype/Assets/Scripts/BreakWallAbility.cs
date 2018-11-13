@@ -40,7 +40,9 @@ public class BreakWallAbility : IAbility
     if (dashTimer > 0.0f)
     {
       Vector2 dashDirection = characterController.spriteRenderer.flipX ? Vector2.left : Vector2.right;
-      rb.velocity = dashDirection * dashSpeed;
+      //rb.velocity = dashDirection * dashSpeed;
+      characterController.Movement(dashDirection * dashSpeed * Time.deltaTime, false);
+      characterController.gravityModifier = 0.0f;
       Debug.Log("DASHING");
       dashTimer -= Time.deltaTime;
       isDashing = true;
@@ -48,7 +50,8 @@ public class BreakWallAbility : IAbility
     else
     {
       isDashing = false;
-      rb.velocity = new Vector2(0.0f, 0.0f);
+      characterController.gravityModifier = 2.0f;
+      //rb.velocity = new Vector2(0.0f, 0.0f);
       Debug.Log("Stopping");
       cooldownTimer = dashCooldown;
       dashTimer = maxDashDuration;
