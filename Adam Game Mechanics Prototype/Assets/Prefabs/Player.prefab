@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 4924876256801548}
   - component: {fileID: 212679258843658420}
   - component: {fileID: 50610961505357702}
+  - component: {fileID: 114740721936188588}
   - component: {fileID: 95828427891492560}
   - component: {fileID: 70775261935890190}
   - component: {fileID: 114008580091614430}
@@ -205,10 +206,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0
-  m_GravityScale: 3
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -260,6 +261,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minGroundNormalY: 0.65
   gravityModifier: 2
+  grounded: 0
+  groundNormal: {x: 0, y: 0}
   maxSpeed: 6
   jumpTakeOffSpeed: 14
   spriteRenderer: {fileID: 0}
@@ -296,6 +299,17 @@ MonoBehaviour:
   maxDashDuration: 0.25
   dashSpeed: 25
   dashCooldown: 1
+--- !u!114 &114740721936188588
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1774644948901648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11dc4302b82274e64b37a0733e7fff52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212135890774000422
 SpriteRenderer:
   m_ObjectHideFlags: 1

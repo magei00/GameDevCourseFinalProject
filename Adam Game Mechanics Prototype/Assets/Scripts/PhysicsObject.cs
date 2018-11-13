@@ -101,8 +101,12 @@ public class PhysicsObject : MonoBehaviour {
 
             for(int i = 0; i<count; i++)
             {
-                //each entry from the array is going to get copied to the list
-                hitBufferList.Add(hitBuffer[i]);
+        //each entry from the array is going to get copied to the list
+              PlatformEffector2D platform = hitBuffer[i].collider.GetComponent<PlatformEffector2D>();
+                if (!platform || (hitBuffer[i].normal == Vector2.up && velocity.y <= 0))
+                {
+                  hitBufferList.Add(hitBuffer[i]);
+                }
             }
             //now we have a list of objects that are going to overlap our physics object's collider. 
         

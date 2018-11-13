@@ -7,6 +7,7 @@ public class AIController : PhysicsObject {
 
   // stats. Move late to separate script
   public float baseMoveSpeed = 10.0f;
+  public float visionRadius = 5.0f;
     private float moveSpeed;
     private float chaseMoveSpeed;
 
@@ -124,7 +125,7 @@ public class AIController : PhysicsObject {
 
     private void checkPlayerDistance()
     {
-        if (Vector2.Distance(transform.position, target.position) < 1f)
+        if (Vector2.Distance(transform.position, target.position) < visionRadius)
         {
             currentState = State.Chasing;
         }
