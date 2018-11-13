@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 27720369}
   m_Layer: 8
   m_Name: ChaseGuard
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -145,10 +145,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b9c0d0fef82a9343b9b3bbb6cb1f913, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  minGroundNormalY: 0.65
+  gravityModifier: 2
+  baseMoveSpeed: 5
   patrolPoint: {fileID: 1272407361}
   currentDestination: {x: 0, y: 0, z: 0}
   maxChaseTime: 2
+  maxWaitTime: 2.5
 --- !u!70 &27720370
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -192,14 +195,14 @@ Rigidbody2D:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 27720368}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 3
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -260,7 +263,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 27720368}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.22, y: 4.55, z: 0}
+  m_LocalPosition: {x: 11.22, y: 5.58, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -599,6 +602,10 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 7531713a5e66c40efaf8e9894b4d783d,
         type: 3}
+    - target: {fileID: 1774644948901648, guid: 8843d1608311a4f47b60e4655f58bcdd, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8843d1608311a4f47b60e4655f58bcdd, type: 2}
   m_IsPrefabAsset: 0
@@ -803,7 +810,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1272407360}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 24.5, y: 4.39, z: 0.18}
+  m_LocalPosition: {x: 17.47, y: 4.39, z: 0.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
