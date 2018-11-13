@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerPlatformerController : PhysicsObject {
 
@@ -20,11 +21,13 @@ public IAbility[] abilities = new IAbility[4];
   
 void Awake()
 {
+    Application.targetFrameRate = 300;
     characterIndex = 0;
     animator = GetComponent<Animator>();
     spriteRenderer = GetComponent<SpriteRenderer>();
     abilities[0] = GetComponent<EmptyAbility>();
     abilities[1] = GetComponent<BreakWallAbility>();
+    abilities[2] = GetComponent<BreakWallAbility>();
 }
 
 
@@ -91,4 +94,10 @@ public void switchChar(int i)
             break;
     }
 }
+
+
+public void kill()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 }

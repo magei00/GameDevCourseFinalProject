@@ -52,6 +52,7 @@ public class PhysicsObject : MonoBehaviour {
 
     void FixedUpdate()
     {
+        
         //Move object down every frame because of gravity
         velocity += gravityModifier * Physics2D.gravity * Time.deltaTime;
         //horizontal movement
@@ -140,6 +141,7 @@ public class PhysicsObject : MonoBehaviour {
 
 
         }
-        rb2d.position = rb2d.position + move.normalized * distance;
+        //rb2d.position = rb2d.position + move.normalized * distance;
+        transform.position = transform.position + new Vector3(move.normalized[0], move.normalized[1], 0) * distance;
     }
 }

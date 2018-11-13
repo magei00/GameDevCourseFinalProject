@@ -17,7 +17,7 @@ public class NextLevel : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
-	}
+
+    }
 	
 }
