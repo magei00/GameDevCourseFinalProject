@@ -28,8 +28,9 @@ void Awake()
     abilities = new IAbility[4];
     abilities[0] = new EmptyAbility();
     abilities[1] = new BreakWallAbility();
-    abilities[2] = new ReverseGravityAbility();     
-}
+    abilities[2] = new ReverseGravityAbility();
+        
+    }
 
 
   protected override void Update()

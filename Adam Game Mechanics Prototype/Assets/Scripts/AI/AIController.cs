@@ -39,7 +39,10 @@ public class AIController : PhysicsObject {
 
     // Update is called once per frame
     override protected void Update () {
+
         
+        
+
     switch (currentState)
     {
       case State.Patrolling:
@@ -119,7 +122,7 @@ public class AIController : PhysicsObject {
 
     private void checkPlayerDistance()
     {
-        if (Vector2.Distance(transform.position, target.position) < 5f)
+        if (Vector2.Distance(transform.position, target.position) < 1f)
         {
             currentState = State.Chasing;
         }
