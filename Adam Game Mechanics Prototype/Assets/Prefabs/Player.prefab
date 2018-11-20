@@ -202,11 +202,11 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1774644948901648}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.0001
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -264,7 +264,7 @@ MonoBehaviour:
   grounded: 0
   groundNormal: {x: 0, y: 0}
   maxSpeed: 6
-  jumpTakeOffSpeed: 14
+  jumpTakeOffSpeed: 7
   spriteRenderer: {fileID: 0}
   adam: {fileID: 21300000, guid: 848ba054e9125f6428f2817cef951a9e, type: 3}
   couch: {fileID: 21300000, guid: 7c3396e24a5678140b68f5862f7512fa, type: 3}
