@@ -314,7 +314,7 @@ MonoBehaviour:
   groundNormal: {x: 0, y: 0}
   maxSpeed: 6
   jumpTakeOffSpeed: 7
-  spriteRenderer: {fileID: 0}
+  spriteRenderer: {fileID: 212679258843658420}
   animator: {fileID: 95828427891492560}
   adam: {fileID: 21300000, guid: 848ba054e9125f6428f2817cef951a9e, type: 3}
   couch: {fileID: 21300000, guid: 5a7397b351e4a2d4fae4c69c5b7e8350, type: 3}
