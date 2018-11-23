@@ -108,7 +108,7 @@ public void switchChar(int i)
             animator.SetInteger("character", 0);
             animator.SetTrigger("character_change");
             gravityModifier = 2f;
-            jumpTakeOffSpeed = 14;
+            jumpTakeOffSpeed = 7;
             //spriteRenderer.sprite = adam;
             break;
         case 1:
