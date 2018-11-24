@@ -14,6 +14,7 @@ public Animator animator;
 private int characterIndex;
 public Sprite adam;
 public Sprite couch;
+private GameControllerScript gameController;
 
 public GameObject effectObject;
 private Animator effectAnimator;
@@ -32,7 +33,9 @@ void Awake()
     abilities[2] = GetComponent<ReverseGravityAbility>();
 
     effectAnimator = effectObject.GetComponent<Animator>();
-    
+    gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameControllerScript>();
+
+
 }
 
 
@@ -108,7 +111,11 @@ public void switchChar(int i)
             animator.SetInteger("character", 0);
             animator.SetTrigger("character_change");
             gravityModifier = 2f;
+<<<<<<< HEAD
             jumpTakeOffSpeed = 14f;
+=======
+            jumpTakeOffSpeed = 7;
+>>>>>>> 1410c7c0b3e2ee42d37f0fd2dad580bb296cb0d7
             //spriteRenderer.sprite = adam;
             break;
         case 1:
@@ -130,9 +137,27 @@ public void switchChar(int i)
     }
 }
 
+public void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Coin")
+        {
+            Destroy(other.gameObject);
+            gameController.IncrementCoin(1);
+        }
 
+
+        
+            if (other.CompareTag("Door"))
+            {
+            gameController.SaveCoins();
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
+        
+
+    }
 public void kill()
     {
+        gameController.ResetCoins();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

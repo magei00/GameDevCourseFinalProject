@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class KeyCollect : MonoBehaviour {
 
-    public GameObject doorToOpen;
+    private GameObject doorToOpen;
     Animator doorAnimator;
 
+   
 
     void Awake()
     {
+        doorToOpen = GameObject.FindGameObjectWithTag("Door");
         doorAnimator = doorToOpen.GetComponent<Animator>();
+        
     }
     void OnTriggerEnter2D(Collider2D other)
     {
