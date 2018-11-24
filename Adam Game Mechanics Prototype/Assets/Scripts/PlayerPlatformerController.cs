@@ -108,15 +108,15 @@ public void switchChar(int i)
             animator.SetInteger("character", 0);
             animator.SetTrigger("character_change");
             gravityModifier = 2f;
-            jumpTakeOffSpeed = 14;
+            jumpTakeOffSpeed = 14f;
             //spriteRenderer.sprite = adam;
             break;
         case 1:
             animator.SetInteger("character", 1);
             animator.SetTrigger("character_change");
             
-            gravityModifier = 0.7f;
-            jumpTakeOffSpeed = 0;
+            gravityModifier = 2f;
+            jumpTakeOffSpeed = 7f;
             //spriteRenderer.sprite = couch;
             break;
         case 2:
