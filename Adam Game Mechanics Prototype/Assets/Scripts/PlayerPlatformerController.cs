@@ -111,11 +111,7 @@ public void switchChar(int i)
             animator.SetInteger("character", 0);
             animator.SetTrigger("character_change");
             gravityModifier = 2f;
-<<<<<<< HEAD
-            jumpTakeOffSpeed = 14f;
-=======
             jumpTakeOffSpeed = 7;
->>>>>>> 1410c7c0b3e2ee42d37f0fd2dad580bb296cb0d7
             //spriteRenderer.sprite = adam;
             break;
         case 1:
