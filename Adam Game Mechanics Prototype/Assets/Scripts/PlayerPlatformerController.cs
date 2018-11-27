@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerPlatformerController : PhysicsObject {
 
@@ -33,6 +34,7 @@ void Awake()
 
     effectAnimator = effectObject.GetComponent<Animator>();
     gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameControllerScript>();
+    GameObject.Find("Character1Button").GetComponent<Button>().image.color = Color.yellow;
 }
 
   protected override void Update()
