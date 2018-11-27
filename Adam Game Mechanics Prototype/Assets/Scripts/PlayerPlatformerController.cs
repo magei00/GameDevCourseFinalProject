@@ -8,7 +8,6 @@ public class PlayerPlatformerController : PhysicsObject {
 public float maxSpeed = 7;
 public float jumpTakeOffSpeed = 7;
 
-
 public SpriteRenderer spriteRenderer;
 public Animator animator;
 private int characterIndex;
@@ -34,10 +33,7 @@ void Awake()
 
     effectAnimator = effectObject.GetComponent<Animator>();
     gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameControllerScript>();
-
-
 }
-
 
   protected override void Update()
   {
@@ -45,8 +41,6 @@ void Awake()
     if (Input.GetKeyDown(KeyCode.F))
       abilities[characterIndex].PerformAbility(this);
   }
-
-
 
   protected override void ComputeVelocity()
 {
@@ -141,16 +135,12 @@ public void OnTriggerEnter2D(Collider2D other)
             Destroy(other.gameObject);
             gameController.IncrementCoin(1);
         }
-
-
         
             if (other.CompareTag("Door"))
             {
             gameController.SaveCoins();
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
-        
-
     }
 public void kill()
     {
