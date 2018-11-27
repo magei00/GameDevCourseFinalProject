@@ -79,6 +79,7 @@ public class AIController : PhysicsObject {
 
     private void Chase()
   {
+
     moveSpeed = chaseMoveSpeed;
     chaseTimer -= Time.deltaTime;
     if(chaseTimer <= 0.0f)
@@ -88,7 +89,13 @@ public class AIController : PhysicsObject {
       moveSpeed = baseMoveSpeed;
       return;
     }
-
+    RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(facingDir * 1, 0, 0), (transform.position + new Vector3(facingDir, -1, 0)) - (transform.position + new Vector3(facingDir * 1, 0, 0)), 1.0f);
+    Debug.DrawLine(transform.position + new Vector3(facingDir * 1, 0, 0), transform.position + new Vector3(facingDir, -1, 0), Color.red);
+    Debug.Log(hit.collider);
+    if (hit.collider == null)
+    {
+      return;
+    }
     MoveTowards(target.position);
 
 
@@ -127,7 +134,7 @@ public class AIController : PhysicsObject {
     {
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position+ new Vector3(facingDir*1,0,0), new Vector2(facingDir,0), 5);
-        Debug.DrawLine(transform.position, transform.position + new Vector3(5*facingDir,0), Color.red);
+        //Debug.DrawLine(transform.position, transform.position + new Vector3(5*facingDir,0), Color.red);
 
         
 
