@@ -9,9 +9,9 @@ public class PhysicsObject : MonoBehaviour {
     public bool grounded; //is the player grounded or not?
     public Vector2 groundNormal;
 
-    protected Vector2 targetVelocity; //horizontal, where is our object going to move?
+    public Vector2 targetVelocity; //horizontal, where is our object going to move?
     protected Rigidbody2D rb2d;
-    protected Vector2 velocity;
+    public Vector2 velocity;
     protected ContactFilter2D contactFilter;
 
     //array to store results of what we hit

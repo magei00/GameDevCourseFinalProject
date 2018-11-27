@@ -23,6 +23,8 @@ public class ReverseGravityAbility : IAbility
     if (charges > 0)
     {
       obj.gravityModifier *= -1;
+      obj.targetVelocity.y = 0;
+      obj.velocity.y = 0;
       characterController.spriteRenderer.flipY = !characterController.spriteRenderer.flipY;
       charges--;
       Debug.Log("GRAVITY");
