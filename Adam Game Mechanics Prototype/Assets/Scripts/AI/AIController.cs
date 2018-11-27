@@ -100,7 +100,7 @@ public class AIController : PhysicsObject {
     {
       currentState = State.Chasing;
       chaseTimer = maxChaseTime;
-      collision.gameObject.GetComponent<PlayerPlatformerController>().kill();
+      collision.gameObject.GetComponent<PlayerPlatformerController>().Kill();
     }
   }
 

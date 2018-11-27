@@ -142,7 +142,7 @@ public void OnTriggerEnter2D(Collider2D other)
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
     }
-public void kill()
+public void Kill()
     {
         gameController.ResetCoins();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
