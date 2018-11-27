@@ -74,12 +74,15 @@ public class BreakWallAbility : IAbility
 
   }
 
-  public void OnCollisionEnter2D(Collision2D other)
+ 
+
+  public void OnCollisionStay2D(Collision2D collision)
   {
-    if(isDashing && other.gameObject.tag == "Breakable")
+    if (isDashing && collision.gameObject.tag == "Breakable")
     {
-      Destroy(other.gameObject);
+      Destroy(collision.gameObject);
     }
     Debug.Log("DASHING HIIIIIIIIIIIIT");
   }
+  
 }

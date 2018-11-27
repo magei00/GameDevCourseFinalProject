@@ -82,4 +82,12 @@ public class BreakWallAbilityB : IAbility
     }
     Debug.Log("DASHING HIIIIIIIIIIIIT");
   }
+
+  private void OnCollisionStay(Collision collision)
+  {
+    if (isDashing && collision.gameObject.tag == "Breakable")
+    {
+      Destroy(collision.gameObject);
+    }
+  }
 }
