@@ -82,7 +82,7 @@ public class BreakWallAbility : IAbility
     {
       Destroy(collision.gameObject);
     }
-    Debug.Log("DASHING HIIIIIIIIIIIIT");
+    
   }
   
 }

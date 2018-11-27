@@ -11,7 +11,7 @@ public class AIController : PhysicsObject {
     private float moveSpeed;
     private float chaseMoveSpeed;
 
-
+    private int facingDir;
 
   private Transform target;
   private Vector3 spawnPosition;
@@ -72,7 +72,7 @@ public class AIController : PhysicsObject {
             return;
         };
 
-        checkPlayerDistance();
+        checkIfPlayerInFront();
     }
 
    
@@ -107,7 +107,7 @@ public class AIController : PhysicsObject {
   private void Patrol()
   {
     MoveTowards(currentDestination);
-    checkPlayerDistance();
+    checkIfPlayerInFront();
 
     if(currentDestination == spawnPosition && Vector2.Distance(transform.position, spawnPosition) < 1.5f)
     {
@@ -123,12 +123,28 @@ public class AIController : PhysicsObject {
     }
   }
 
-    private void checkPlayerDistance()
+    private void checkIfPlayerInFront()
     {
-        if (Vector2.Distance(transform.position, target.position) < visionRadius)
+
+        RaycastHit2D hit = Physics2D.Raycast(transform.position+ new Vector3(facingDir*1,0,0), new Vector2(facingDir,0), 5);
+        Debug.DrawLine(transform.position, transform.position + new Vector3(5*facingDir,0), Color.red);
+
+        
+
+        try
         {
-            currentState = State.Chasing;
+            
+            if ( hit.collider.gameObject.tag == "Player")
+            {
+                currentState = State.Chasing;
+            }
         }
+        catch (NullReferenceException)
+        {
+
+        }
+
+
     }
 
     // Called each frame
@@ -138,8 +154,10 @@ public class AIController : PhysicsObject {
       new Vector2(destination.x, transform.position.y), moveSpeed * Time.deltaTime);
 
         float xdir= destination.x - transform.position.x;
+        if (xdir > 0.00f) { facingDir = 1; };
+        if (xdir < 0.00f) { facingDir = -1; };
 
-      bool flipSprite = (spriteRenderer.flipX ? (xdir > 0.00f) : (xdir < 0.00f));
+        bool flipSprite = (spriteRenderer.flipX ? (xdir > 0.00f) : (xdir < 0.00f));
         if (flipSprite)
         {
             spriteRenderer.flipX = !spriteRenderer.flipX;
