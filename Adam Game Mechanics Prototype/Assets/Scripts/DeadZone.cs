@@ -22,7 +22,7 @@ public class DeadZone : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Player")
         {
-            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerPlatformerController>().kill();
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerPlatformerController>().Kill();
             
         }
     }

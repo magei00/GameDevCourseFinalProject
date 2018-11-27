@@ -20,6 +20,7 @@ public class SwitchCharacterMenuB : MonoBehaviour
     GameIsPaused = pauseMenu.GameIsPaused;
     currentPlayer = players[0];
     Debug.Log(players.Length);
+    switchMenu.SetActive(true);
   }
 
   // Update is called once per frame
@@ -27,7 +28,6 @@ public class SwitchCharacterMenuB : MonoBehaviour
   {
     if ((Input.GetButton("Character1") || Input.GetButton("Character2") || Input.GetButton("Character3")) && !pauseMenu.GameIsPaused)
     {
-      switchMenu.SetActive(true);
       //Debug.Log("You pressed X");
       Time.timeScale = 0.25f;
       

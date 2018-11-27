@@ -114,7 +114,7 @@ public class PhysicsObject : MonoBehaviour {
             for(int i=0; i<hitBufferList.Count; i++)
             {
                 Vector2 currentNormal = hitBufferList[i].normal;
-                if(currentNormal.y > minGroundNormalY)
+                if(gravityModifier >= 0 && currentNormal.y > minGroundNormalY)
                 {
                     //if the angle of the obj we're colliding with can be considered a piece of ground
                     grounded = true;
@@ -126,11 +126,23 @@ public class PhysicsObject : MonoBehaviour {
                     }
 
                 }
-                //getting the diff between the velo and  the cunormal and determining whether we need to subtract
-                //from the velocity to make sure the player doesnt get stuck in something
+                else if (gravityModifier <= 0 && currentNormal.y < minGroundNormalY)
+                {
+                  //if the angle of the obj we're colliding with can be considered a piece of ground
+                  grounded = true;
+                  if (yMovement)
+                  {
+                    //add a variable for our ground normal
+                    groundNormal = -currentNormal;
+                    currentNormal.x = 0;
+                  }
 
-                //hit their head on a sloped ceiling and continue a little bit
-                float projection = Vector2.Dot(velocity, currentNormal);
+                }
+        //getting the diff between the velo and  the cunormal and determining whether we need to subtract
+        //from the velocity to make sure the player doesnt get stuck in something
+
+        //hit their head on a sloped ceiling and continue a little bit
+        float projection = Vector2.Dot(velocity, currentNormal);
                 if(projection<0)
                 {
                     //cancel out the velocity that would be stopped by the collision

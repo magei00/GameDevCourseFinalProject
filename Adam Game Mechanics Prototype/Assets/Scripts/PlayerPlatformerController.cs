@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerPlatformerController : PhysicsObject {
 
 public float maxSpeed = 7;
 public float jumpTakeOffSpeed = 7;
-
 
 public SpriteRenderer spriteRenderer;
 public Animator animator;
@@ -34,10 +34,8 @@ void Awake()
 
     effectAnimator = effectObject.GetComponent<Animator>();
     gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameControllerScript>();
-
-
+    GameObject.Find("Character1Button").GetComponent<Button>().image.color = Color.yellow;
 }
-
 
   protected override void Update()
   {
@@ -45,8 +43,6 @@ void Awake()
     if (Input.GetKeyDown(KeyCode.F))
       abilities[characterIndex].PerformAbility(this);
   }
-
-
 
   protected override void ComputeVelocity()
 {
@@ -141,18 +137,14 @@ public void OnTriggerEnter2D(Collider2D other)
             Destroy(other.gameObject);
             gameController.IncrementCoin(1);
         }
-
-
         
             if (other.CompareTag("Door"))
             {
             gameController.SaveCoins();
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
-        
-
     }
-public void kill()
+public void Kill()
     {
         gameController.ResetCoins();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);

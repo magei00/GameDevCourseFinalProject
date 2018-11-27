@@ -73,7 +73,7 @@ public class SecruityCameraController : MonoBehaviour {
     if(playerHit.collider != null && playerHit.collider.tag == "Player" && Mathf.Abs(Vector3.Angle(-transform.up, player.transform.position - transform.position)) < fov / 2)
     {
       
-      Destroy(playerHit.collider.gameObject); // Change to gameover or later to guards chasing you
+      playerHit.collider.gameObject.GetComponent<PlayerPlatformerController>().Kill(); // Change to gameover or later to guards chasing you
     }
       
 
