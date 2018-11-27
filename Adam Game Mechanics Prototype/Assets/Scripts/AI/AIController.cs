@@ -109,13 +109,13 @@ public class AIController : PhysicsObject {
     MoveTowards(currentDestination);
     checkIfPlayerInFront();
 
-    if(currentDestination == spawnPosition && Vector2.Distance(transform.position, spawnPosition) < 1.5f)
+    if(currentDestination == spawnPosition && Vector2.Distance(transform.position, spawnPosition) < 0.2f)
     {
       Debug.Log("SWITCHING");
       currentDestination = patrolPoint.position;
       currentState = State.Waiting;
     }
-    else if(currentDestination == patrolPoint.position && Vector2.Distance(transform.position, patrolPoint.position) < 1.5f)
+    else if(currentDestination == patrolPoint.position && Vector2.Distance(transform.position, patrolPoint.position) < 0.2f)
     {
       Debug.Log("SWITCHING 2");
       currentDestination = spawnPosition;
