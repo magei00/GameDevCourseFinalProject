@@ -266,6 +266,16 @@ Prefab:
       propertyPath: m_TagString
       value: CoinText
       objectReference: {fileID: 0}
+    - target: {fileID: 224301160297604980, guid: bfbe3dad72a464c409952918e57d8f8d,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114769416982051310, guid: bfbe3dad72a464c409952918e57d8f8d,
+        type: 2}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 1241561273}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfbe3dad72a464c409952918e57d8f8d, type: 2}
   m_IsPrefabAsset: 0
@@ -679,7 +689,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4795146662670524, guid: 0c73baae32f526c46a05857a387efc14, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1800715432120754, guid: 0c73baae32f526c46a05857a387efc14, type: 2}
       propertyPath: m_Name
@@ -688,6 +698,12 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c73baae32f526c46a05857a387efc14, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &1241561273 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114439532532551568, guid: 06d29db8f6e98f34f8864a82a696009e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1639574702}
+  m_Script: {fileID: 11500000, guid: 0c49d9fa90bacb84c916a0d07acb17de, type: 3}
 --- !u!1001 &1256975188
 Prefab:
   m_ObjectHideFlags: 0
