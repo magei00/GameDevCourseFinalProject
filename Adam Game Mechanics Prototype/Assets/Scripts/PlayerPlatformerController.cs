@@ -40,7 +40,7 @@ void Awake()
   protected override void Update()
   {
     base.Update();
-    if (Input.GetKeyDown(KeyCode.F))
+    if (Input.GetButtonDown("Ability"))
       abilities[characterIndex].PerformAbility(this);
   }
 
