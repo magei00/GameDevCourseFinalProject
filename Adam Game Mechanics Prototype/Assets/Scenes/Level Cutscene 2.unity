@@ -506,7 +506,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5a7397b351e4a2d4fae4c69c5b7e8350, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 809fd19eefb03334da9d2426617a68a1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -3701,21 +3701,17 @@ MonoBehaviour:
   dialogueManager: {fileID: 118593883}
   NPC_animator: {fileID: 419790356}
   NPC: {fileID: 419790353}
-  newCharacterIndex: 1
+  newCharacterIndex: 2
   character1sprite: {fileID: 21300000, guid: 848ba054e9125f6428f2817cef951a9e, type: 3}
   Player: {fileID: 1405708089}
   playerController: {fileID: 360880630}
   cutsceneTrigger: {fileID: 1649311206}
   dialogue:
-    name: Dash
+    name: "\u05E4\u0279\u0250\u028C"
     sentences:
-    - Hey there.
-    - A little bird told me that you were trying to break outta' here.
-    - 'Well, not a little bird, but an inmate I just beat up. '
-    - 'If you''re going to break outta'' here, you''re gonna need someone to
-
-      break the walls like the one you see behind you. '
-    - I've been meaning to put together a gang of guys that want to escape.
+    - "Hey there. I'm \u05E4\u0279\u0250\u028C. (Ignore the wrong image)"
+    - I heard you are trying to get out of here
+    - "You will need my help. I can reverse gravity to get to \nplaces others can't"
     - Let me show you what I can do and maybe we can team up!
 --- !u!4 &2036905963
 Transform:

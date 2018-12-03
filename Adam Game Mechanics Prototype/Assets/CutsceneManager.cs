@@ -9,6 +9,7 @@ public class CutsceneManager : MonoBehaviour {
     public DialogueManager dialogueManager;
     public Animator NPC_animator;
     public GameObject NPC;
+    public int newCharacterIndex = 0;
 
     public Sprite character1sprite;
 
@@ -55,9 +56,21 @@ public class CutsceneManager : MonoBehaviour {
 
         Player.transform.position = NPCpos;
         playerController.jumpTakeOffSpeed = 8f;
-        //Player.transform.position = NPCpos;
+    //Player.transform.position = NPCpos;
+    GameControllerScript gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameControllerScript>();
+    switch (newCharacterIndex)
+    {
+      case 1:
+        gameController.dash_unlocked = true;
+        break;
+      case 2:
+        gameController.gravity_unlocked = true;
+        break;
+      default:
+        break;
+    }
 
-        playerController.enabled = true;
+    playerController.enabled = true;
 
     }
 

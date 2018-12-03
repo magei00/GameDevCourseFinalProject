@@ -9,13 +9,14 @@ public class SwitchCharacterMenu : MonoBehaviour {
     private GameObject switchMenu;
     public PauseMenu pauseMenu;
     private bool GameIsPaused;
-    public GameControllerScript gameController;
+    private GameControllerScript gameController;
     
 
 	// Use this for initialization
 	void Start () {
         GameIsPaused = pauseMenu.GameIsPaused;
         player = GameObject.FindGameObjectWithTag("Player");
+        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameControllerScript>();
 	}
 
     void ChangeArrowKeyColor(int charIndex) {
@@ -28,22 +29,24 @@ public class SwitchCharacterMenu : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         // switchMenu.SetActive(true);
-		if((Input.GetButton("Character1") || Input.GetButton("Character2") || Input.GetButton("Character3")) && !pauseMenu.GameIsPaused)
+    if(!gameController)
+      gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameControllerScript>();
+    if ((Input.GetButton("Character1") || Input.GetButton("Character2") || Input.GetButton("Character3")) && !pauseMenu.GameIsPaused)
         {
             Debug.Log("You pressed X");
             Time.timeScale = 0.25f;
 
-            if (Input.GetButtonDown("Character1") && gameController.IsCharacterUnlocked(1))
+            if (Input.GetButtonDown("Character1"))
             {
                 ChangeArrowKeyColor(1);
                 player.GetComponent<PlayerPlatformerController>().switchChar(0);
             }
-            else if (Input.GetButtonDown("Character2") && gameController.IsCharacterUnlocked(2))
+            else if (Input.GetButtonDown("Character2") && gameController.IsCharacterUnlocked(1))
             {
                 ChangeArrowKeyColor(2);
                 player.GetComponent<PlayerPlatformerController>().switchChar(1);
             }
-             else if (Input.GetButtonDown("Character3") && gameController.IsCharacterUnlocked(3))
+             else if (Input.GetButtonDown("Character3") && gameController.IsCharacterUnlocked(2))
             {
                 ChangeArrowKeyColor(3);
                 player.GetComponent<PlayerPlatformerController>().switchChar(2);

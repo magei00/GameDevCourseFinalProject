@@ -17,19 +17,37 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 4.unity
     guid: 2193265e2e43598499dea4f7ca9181b6
+  - enabled: 1
+    path: Assets/Scenes/Level 5.unity
+    guid: 8dc32bee268e2a842a87328fcf0bf9ec
+  - enabled: 1
+    path: Assets/Scenes/Level 6.unity
+    guid: efd9529c6f7f8004c8e403c33fe4c5c5
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/Breaking Level 1.unity
-    guid: a421c04fab1da42459e0d6e9c2a5781c
-  - enabled: 1
-    path: Assets/Scenes/Breaking Level 2.unity
-    guid: bb128d73e9825b24591f6d10c31b79bc
-  - enabled: 1
     path: Assets/Scenes/Level Cutscene 1.unity
     guid: f64b1fbade0aae04f87ab594e63acb61
   - enabled: 1
-    path: Assets/Scenes/Breaking Level 3.unity
+    path: Assets/Scenes/Level 7.unity
+    guid: a421c04fab1da42459e0d6e9c2a5781c
+  - enabled: 1
+    path: Assets/Scenes/Level 8.unity
+    guid: 70e07f2037163ff4a8bd520df6ad3403
+  - enabled: 1
+    path: Assets/Scenes/Level Cutscene 2.unity
+    guid: e6459acc070361f4f9aeb2b8ffcbbcb4
+  - enabled: 1
+    path: Assets/Scenes/Level 9.unity
+    guid: 9d0e56d69ef094802a57fd10919913b7
+  - enabled: 0
+    path: Assets/Scenes/Breaking Level 2.unity
+    guid: bb128d73e9825b24591f6d10c31b79bc
+  - enabled: 1
+    path: Assets/Scenes/Level 10.unity
+    guid: a29daf3491fd9624185419735b9db463
+  - enabled: 1
+    path: Assets/Scenes/Level 11.unity
     guid: 703c64413b28df548b9a2348f7a3a9a7
   m_configObjects: {}
