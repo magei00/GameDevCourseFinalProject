@@ -9,6 +9,9 @@ TagManager:
   - Key
   - Breakable
   - CoinText
+  - Dash_Unlockable
+  - Gravity_Unlockable
+  - CharacterSelectScreen
   layers:
   - Default
   - TransparentFX

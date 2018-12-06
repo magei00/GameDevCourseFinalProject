@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CutsceneManager : MonoBehaviour {
 
@@ -10,6 +11,10 @@ public class CutsceneManager : MonoBehaviour {
     public Animator NPC_animator;
     public GameObject NPC;
     public int newCharacterIndex = 0;
+
+    public Image dash_image;
+    public Image gravity_image;
+
 
     public Sprite character1sprite;
 
@@ -41,36 +46,28 @@ public class CutsceneManager : MonoBehaviour {
         cinema_animator.SetBool("is_on", false);
         NPC_animator.SetBool("is_walking", false);
         NPC_animator.enabled = false;
-        //Now we want to shift to Dash and use him.
-        player_animator.SetTrigger("character_change");
-        player_animator.SetInteger("character", 1);
 
-        //Change the position of the two
-        Vector3 playerPos = Player.transform.position;
-        Vector3 NPCpos = NPC.transform.position;
-        NPC.transform.position = Player.transform.position;
-
-        //Change the sprite of the NPC
+        //Change the sprite of the NPC to the main character
         SpriteRenderer NPCsprite = NPC.GetComponent<SpriteRenderer>();
-        NPCsprite.sprite = character1sprite;
+        NPCsprite.enabled = false;
 
-        Player.transform.position = NPCpos;
-        playerController.jumpTakeOffSpeed = 8f;
-    //Player.transform.position = NPCpos;
-    GameControllerScript gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameControllerScript>();
-    switch (newCharacterIndex)
-    {
-      case 1:
-        gameController.dash_unlocked = true;
-        break;
-      case 2:
-        gameController.gravity_unlocked = true;
-        break;
-      default:
-        break;
-    }
+        //Player.transform.position = NPCpos;
+        GameControllerScript gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameControllerScript>();
+        switch (newCharacterIndex)
+        {
+            case 1:
+                gameController.dash_unlocked = true;
+                dash_image.color = Color.white;
+                break;
+            case 2:
+                gameController.gravity_unlocked = true;
+                gravity_image.color = Color.white;
+                break;
+            default:
+                break;
+        }
 
-    playerController.enabled = true;
+        playerController.enabled = true;
 
     }
 

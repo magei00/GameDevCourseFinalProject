@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MenuScene.unity
+    guid: 3a381115f76664644a26e0264bbb0068
+  - enabled: 1
     path: Assets/Scenes/Level 1 New.unity
     guid: 1d34dd38de9757449be2bf1e3c667e57
   - enabled: 1
@@ -36,6 +39,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Level 8.unity
     guid: 70e07f2037163ff4a8bd520df6ad3403
   - enabled: 1
+    path: Assets/Scenes/Level Cutscene 2 Gravity.unity
+    guid: efc39092b0cfc6c41bd8bc1689b58cee
+  - enabled: 0
     path: Assets/Scenes/Level Cutscene 2.unity
     guid: e6459acc070361f4f9aeb2b8ffcbbcb4
   - enabled: 1
@@ -50,4 +56,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 11.unity
     guid: 703c64413b28df548b9a2348f7a3a9a7
+  - enabled: 1
+    path: Assets/Scenes/EndGame.unity
+    guid: 04fc42a55863ff047a1ad945a1f9e2e1
   m_configObjects: {}

@@ -142,7 +142,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fov: 90
   maxRotAngle: 45
-  cameraSwitch: {fileID: 0}
   rotationSpeed: 5
 --- !u!212 &212402426607114742
 SpriteRenderer:
@@ -179,7 +178,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 61bea41f6b43a4548a021951235907aa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 46b4c106f040590419aa34186199cf48, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
