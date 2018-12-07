@@ -86,9 +86,9 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1666021227463926}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 157e0a4fa2cc0f4419b9dcb83c19c78a, type: 2}
+  m_Controller: {fileID: 9100000, guid: d8890db1475fab24fb9d8807297d38cb, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -110,7 +110,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minGroundNormalY: 0.65
   gravityModifier: 2
+  grounded: 0
+  groundNormal: {x: 0, y: 0}
+  targetVelocity: {x: 0, y: 0}
+  velocity: {x: 0, y: 0}
   baseMoveSpeed: 5
+  visionRadius: 5
   patrolPoint: {fileID: 0}
   currentDestination: {x: 0, y: 0, z: 0}
   maxChaseTime: 2
@@ -150,7 +155,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 4be8789ed35938b45a6b0d8b91a3be74, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 30522213778316e4e9812d43a1c4e34c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

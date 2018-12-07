@@ -11,6 +11,8 @@ public class AIController : PhysicsObject {
     private float moveSpeed;
     private float chaseMoveSpeed;
 
+    private Animator guard_animator;
+
     private int facingDir;
 
   private Transform target;
@@ -30,14 +32,17 @@ public class AIController : PhysicsObject {
  
 	// Use this for initialization
 	void Start () {
-    target = GameObject.FindGameObjectWithTag("Player").transform;
-    spriteRenderer = GetComponent<SpriteRenderer>();
-    currentState = State.Patrolling;
-    spawnPosition = transform.position;
-    currentDestination = patrolPoint.position;
-    waitTimer = maxWaitTime;
-    moveSpeed = baseMoveSpeed;
-    chaseMoveSpeed = baseMoveSpeed * 1.3f;
+
+        guard_animator = GetComponent<Animator>();
+
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        currentState = State.Patrolling;
+        spawnPosition = transform.position;
+        currentDestination = patrolPoint.position;
+        waitTimer = maxWaitTime;
+        moveSpeed = baseMoveSpeed;
+        chaseMoveSpeed = baseMoveSpeed * 1.3f;
     }
 
     // Update is called once per frame
@@ -64,6 +69,8 @@ public class AIController : PhysicsObject {
 
     private void Wait()
     {
+        guard_animator.SetBool("is_alert", false);
+        guard_animator.SetFloat("speed", 0f);
         waitTimer -= Time.deltaTime;
         if (waitTimer <= 0.0f)
         {
@@ -79,8 +86,10 @@ public class AIController : PhysicsObject {
 
     private void Chase()
   {
-
+    
+    guard_animator.SetBool("is_alert", true);
     moveSpeed = chaseMoveSpeed;
+
     chaseTimer -= Time.deltaTime;
     if(chaseTimer <= 0.0f)
     {
@@ -113,7 +122,10 @@ public class AIController : PhysicsObject {
 
   private void Patrol()
   {
-    MoveTowards(currentDestination);
+        guard_animator.SetBool("is_alert", false);
+        guard_animator.SetFloat("speed", 1f);
+
+        MoveTowards(currentDestination);
     checkIfPlayerInFront();
 
     if(currentDestination == spawnPosition && Vector2.Distance(transform.position, spawnPosition) < 0.2f)

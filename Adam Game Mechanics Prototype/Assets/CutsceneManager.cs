@@ -45,26 +45,31 @@ public class CutsceneManager : MonoBehaviour {
         //should probably be in a cutscene manager
         cinema_animator.SetBool("is_on", false);
         NPC_animator.SetBool("is_walking", false);
-        NPC_animator.enabled = false;
+        
 
-        //Change the sprite of the NPC to the main character
+
+
         SpriteRenderer NPCsprite = NPC.GetComponent<SpriteRenderer>();
-        NPCsprite.enabled = false;
-
         //Player.transform.position = NPCpos;
         GameControllerScript gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameControllerScript>();
         switch (newCharacterIndex)
         {
             case 1:
+                NPC_animator.enabled = false;
+                NPCsprite.enabled = false;
                 gameController.dash_unlocked = true;
                 dash_image.color = Color.white;
                 break;
             case 2:
+                NPC_animator.enabled = false;
+                NPCsprite.enabled = false;
                 gameController.gravity_unlocked = true;
                 gravity_image.color = Color.white;
                 break;
-            default:
+            case 0:
+                NPC_animator.SetTrigger("leave");
                 break;
+                
         }
 
         playerController.enabled = true;
