@@ -11,6 +11,8 @@ public class AIController : PhysicsObject {
     private float moveSpeed;
     private float chaseMoveSpeed;
 
+    public int bribeCost = 5;
+
     private Animator guard_animator;
 
     private int facingDir;
@@ -21,7 +23,7 @@ public class AIController : PhysicsObject {
   public Transform patrolPoint; // Maybe extend to a list later if more complexity is needed
   public Vector3 currentDestination;
 
-  enum State { Patrolling, Waiting, Chasing}
+  enum State { Patrolling, Waiting, Chasing, Bribed}
   private State currentState;
 
   public float maxChaseTime = 2.0f;
@@ -62,7 +64,10 @@ public class AIController : PhysicsObject {
         case State.Waiting:
         Wait();
         break;
-      default:
+        case State.Bribed:
+        Idle();
+        break;
+        default:
         break;
     }
   }
@@ -105,6 +110,7 @@ public class AIController : PhysicsObject {
     {
       return;
     }
+    checkIfPlayerInFront();
     MoveTowards(target.position);
 
 
@@ -114,9 +120,22 @@ public class AIController : PhysicsObject {
   {
     if(collision.gameObject.tag == "Player")
     {
-      currentState = State.Chasing;
-      chaseTimer = maxChaseTime;
-      collision.gameObject.GetComponent<PlayerPlatformerController>().Kill();
+      GameControllerScript GC = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameControllerScript>();
+
+            if (GC.GetCoins() >= bribeCost)
+            {
+                GC.DecrementCoin(bribeCost);
+                GetComponent<CapsuleCollider2D>().enabled = false;
+                gravityModifier = 0;
+                currentState = State.Bribed;
+            }
+            else
+            {
+                currentState = State.Chasing;
+                chaseTimer = maxChaseTime;
+                collision.gameObject.GetComponent<PlayerPlatformerController>().Kill();
+            }
+      
     }
   }
 
@@ -142,6 +161,11 @@ public class AIController : PhysicsObject {
     }
   }
 
+  private void Idle()
+    {
+        //do nothing
+    }
+
     private void checkIfPlayerInFront()
     {
 
@@ -155,6 +179,7 @@ public class AIController : PhysicsObject {
             
             if ( hit.collider.gameObject.tag == "Player")
             {
+                chaseTimer = maxChaseTime;
                 currentState = State.Chasing;
             }
         }

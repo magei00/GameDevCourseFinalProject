@@ -71,6 +71,11 @@ public class GameControllerScript : MonoBehaviour {
         coins += i;
     }
 
+    public void DecrementCoin(int i)
+    {
+        coins -= i;
+    }
+
     public void SaveCoins()
     {
         savedCoins = coins;
@@ -79,5 +84,10 @@ public class GameControllerScript : MonoBehaviour {
     public void ResetCoins()
     {
         coins = savedCoins;
+    }
+
+    public int GetCoins()
+    {
+        return coins;
     }
 }

@@ -41,7 +41,16 @@ void Awake()
   {
     base.Update();
     if (Input.GetButtonDown("Ability"))
-      abilities[characterIndex].PerformAbility(this);
+        {
+            abilities[characterIndex].PerformAbility(this);
+        }
+
+
+      if (Input.GetKeyDown("r"))
+      {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            gameController.ResetCoins();
+      }
   }
 
   protected override void ComputeVelocity()
