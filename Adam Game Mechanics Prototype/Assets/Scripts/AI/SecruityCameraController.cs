@@ -55,6 +55,7 @@ public class SecruityCameraController : MonoBehaviour {
         rotationSpeed = -rotationSpeed;
       }
       Vector3 newRot = new Vector3(0, 0, rotationSpeed * Time.deltaTime);
+      transform.Rotate(newRot);
       spotLightTransform.Rotate(new Vector3(0, 0, -rotationSpeed * Time.deltaTime)); //TODO Fix with matrices
       //Draw the updated spotlight
       ShineSpotLight();

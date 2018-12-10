@@ -4265,9 +4265,8 @@ MonoBehaviour:
     - 'Well, well, well. If it isn''t Adam. '
     - 'Just to let you know, us guards expect a little bribe if we are going to look
       the other way. '
-    - 'If me and my colleagues catch you, it will cost you 5 coins. '
-    - 'But if the red guards catch you, that''ll be about 15 coins. '
-    - 'I''ll be on my way if you''ll cough up the 5 coins thank you very much... '
+    - 'If me and my colleagues catch you, it will cost you 25 coins. '
+    - 'I''ll be on my way if you''ll cough up the 25 coins thank you very much... '
 --- !u!4 &2036905963
 Transform:
   m_ObjectHideFlags: 0
