@@ -116,6 +116,7 @@ MonoBehaviour:
   velocity: {x: 0, y: 0}
   baseMoveSpeed: 5
   visionRadius: 5
+  bribeCost: 25
   patrolPoint: {fileID: 0}
   currentDestination: {x: 0, y: 0, z: 0}
   maxChaseTime: 2
