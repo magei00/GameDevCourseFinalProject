@@ -35,9 +35,11 @@ public class SwitchCharacterMenu : MonoBehaviour {
       gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameControllerScript>();
     if ((Input.GetButton("Character1") || Input.GetButton("Character2") || Input.GetButton("Character3")) && !pauseMenu.GameIsPaused)
         {
+            Debug.Log(gameController.GetCurrentPlayerIndex());
 
             if (Input.GetButtonDown("Character1") && gameController.GetCurrentPlayerIndex() != 1)
             {
+
                 ChangeArrowKeyColor(1);
                 player.GetComponent<PlayerPlatformerController>().switchChar(0);
 
@@ -48,6 +50,7 @@ public class SwitchCharacterMenu : MonoBehaviour {
             }
             else if (Input.GetButtonDown("Character2") && gameController.IsCharacterUnlocked(1) && gameController.GetCurrentPlayerIndex() != 2)
             {
+                Debug.Log(gameController.GetCurrentPlayerIndex());
                 ChangeArrowKeyColor(2);
                 player.GetComponent<PlayerPlatformerController>().switchChar(1);
  
@@ -59,6 +62,7 @@ public class SwitchCharacterMenu : MonoBehaviour {
             }
             else if (Input.GetButtonDown("Character3") && gameController.IsCharacterUnlocked(2) && gameController.GetCurrentPlayerIndex() != 3)
             {
+                Debug.Log(gameController.GetCurrentPlayerIndex());
 
                 ChangeArrowKeyColor(3);
                 player.GetComponent<PlayerPlatformerController>().switchChar(2);
