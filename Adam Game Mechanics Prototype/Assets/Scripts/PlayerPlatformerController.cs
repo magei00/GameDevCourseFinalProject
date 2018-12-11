@@ -16,7 +16,7 @@ public class PlayerPlatformerController : PhysicsObject
   public Sprite adam;
   public Sprite couch;
   public int charges = 1;
-  private float groundedTolerance = 0.07f;
+  private float groundedTolerance = 0.01f;
   private float groundedToleranceTimer;
   private GameControllerScript gameController;
 
@@ -85,7 +85,7 @@ public class PlayerPlatformerController : PhysicsObject
       animator.SetFloat("speed", 0f);
     }
 
-    if (Input.GetButtonDown("Jump") && (grounded || charges > 0))
+    if (Input.GetButtonDown("Jump") && (grounded || (charges > 0 && characterIndex == 0)))
     {
       if (!grounded)
         charges--;
@@ -136,7 +136,7 @@ public class PlayerPlatformerController : PhysicsObject
         animator.SetInteger("character", 0);
         animator.SetTrigger("character_change");
         gravityModifier = 2f;
-        jumpTakeOffSpeed = 11f;
+        jumpTakeOffSpeed = 8f;
         spriteRenderer.flipY = false;
         //spriteRenderer.sprite = adam;
         break;
