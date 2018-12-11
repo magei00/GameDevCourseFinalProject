@@ -10,6 +10,8 @@ public class SwitchCharacterMenu : MonoBehaviour {
     public PauseMenu pauseMenu;
     private bool GameIsPaused;
     private GameControllerScript gameController;
+
+    public Animator effect_animator;
     
 
 	// Use this for initialization
@@ -33,23 +35,39 @@ public class SwitchCharacterMenu : MonoBehaviour {
       gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameControllerScript>();
     if ((Input.GetButton("Character1") || Input.GetButton("Character2") || Input.GetButton("Character3")) && !pauseMenu.GameIsPaused)
         {
-            Debug.Log("You pressed X");
-            Time.timeScale = 0.25f;
 
-            if (Input.GetButtonDown("Character1"))
+            if (Input.GetButtonDown("Character1") && gameController.GetCurrentPlayerIndex() != 1)
             {
                 ChangeArrowKeyColor(1);
                 player.GetComponent<PlayerPlatformerController>().switchChar(0);
+
+                effect_animator.SetTrigger("change_trigger");
+
+                gameController.SetCurrentPlayerIndex(1);
+
             }
-            else if (Input.GetButtonDown("Character2") && gameController.IsCharacterUnlocked(1))
+            else if (Input.GetButtonDown("Character2") && gameController.IsCharacterUnlocked(1) && gameController.GetCurrentPlayerIndex() != 2)
             {
                 ChangeArrowKeyColor(2);
                 player.GetComponent<PlayerPlatformerController>().switchChar(1);
+ 
+                effect_animator.SetTrigger("change_trigger");
+
+                gameController.SetCurrentPlayerIndex(2);
+
+
             }
-             else if (Input.GetButtonDown("Character3") && gameController.IsCharacterUnlocked(2))
+            else if (Input.GetButtonDown("Character3") && gameController.IsCharacterUnlocked(2) && gameController.GetCurrentPlayerIndex() != 3)
             {
+
                 ChangeArrowKeyColor(3);
                 player.GetComponent<PlayerPlatformerController>().switchChar(2);
+
+                effect_animator.SetTrigger("change_trigger");
+
+                gameController.SetCurrentPlayerIndex(3);
+
+
             }
             Time.timeScale = 1f;
         }

@@ -14,6 +14,8 @@ public class GameControllerScript : MonoBehaviour {
     public bool gravity_unlocked = false;
     public bool fourth_unlocked = false;
 
+    private int currentPlayerIndex = 1;
+
 
     // Use this for initialization
     void Start () {
@@ -25,6 +27,16 @@ public class GameControllerScript : MonoBehaviour {
         DontDestroyOnLoad(this);
 
        
+    }
+
+    public void SetCurrentPlayerIndex(int index)
+    {
+        this.currentPlayerIndex = index;
+    }
+
+    public int GetCurrentPlayerIndex()
+    {
+        return this.currentPlayerIndex;
     }
     
     //checks whether a certain character (indicated by the character index) is unlocked and returns the appropriate boolean value. 

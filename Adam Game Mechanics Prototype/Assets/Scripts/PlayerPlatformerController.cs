@@ -20,8 +20,6 @@ public class PlayerPlatformerController : PhysicsObject
   private float groundedToleranceTimer;
   private GameControllerScript gameController;
 
-  public GameObject effectObject;
-  private Animator effectAnimator;
 
   public Sprite char3;
 
@@ -36,7 +34,6 @@ public class PlayerPlatformerController : PhysicsObject
     abilities[1] = GetComponent<BreakWallAbility>();
     abilities[2] = GetComponent<ReverseGravityAbility>();
 
-    effectAnimator = effectObject.GetComponent<Animator>();
     gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameControllerScript>();
     GameObject.Find("Character1Button").GetComponent<Button>().image.color = Color.yellow;
   }
@@ -132,7 +129,6 @@ public class PlayerPlatformerController : PhysicsObject
     //characterController.spriteRenderer.flipY = true then we need to flip the sprite
 
     characterIndex = i;
-    effectAnimator.SetTrigger("change_trigger");
 
     switch (i)
     {
