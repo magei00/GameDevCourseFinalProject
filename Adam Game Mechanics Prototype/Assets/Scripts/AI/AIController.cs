@@ -94,21 +94,25 @@ public class AIController : PhysicsObject {
     
     guard_animator.SetBool("is_alert", true);
     moveSpeed = chaseMoveSpeed;
+    guard_animator.SetFloat("speed", moveSpeed);
 
     chaseTimer -= Time.deltaTime;
     if(chaseTimer <= 0.0f)
     {
-      currentState = State.Patrolling;
-      chaseTimer = maxChaseTime;
-      moveSpeed = baseMoveSpeed;
-      return;
+        currentState = State.Patrolling;
+        guard_animator.SetBool("is_alert", false);
+        chaseTimer = maxChaseTime;
+        moveSpeed = baseMoveSpeed;
+        guard_animator.SetFloat("speed", moveSpeed);
+        return;
     }
     RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(facingDir * 1, 0, 0), (transform.position + new Vector3(facingDir, -1, 0)) - (transform.position + new Vector3(facingDir * 1, 0, 0)), 1.0f);
     Debug.DrawLine(transform.position + new Vector3(facingDir * 1, 0, 0), transform.position + new Vector3(facingDir, -1, 0), Color.red);
-    Debug.Log(hit.collider);
+    Debug.Log("Guard: "+hit.collider);
     if (hit.collider == null)
     {
-      return;
+        guard_animator.SetFloat("speed", 0f);
+        return;
     }
     checkIfPlayerInFront();
     MoveTowards(target.position);
@@ -128,6 +132,9 @@ public class AIController : PhysicsObject {
                 GetComponent<CapsuleCollider2D>().enabled = false;
                 gravityModifier = 0;
                 currentState = State.Bribed;
+                guard_animator.SetBool("is_alert", false);
+
+
             }
             else
             {
@@ -171,8 +178,6 @@ public class AIController : PhysicsObject {
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position+ new Vector3(facingDir*1,0,0), new Vector2(facingDir,0), 5);
         //Debug.DrawLine(transform.position, transform.position + new Vector3(5*facingDir,0), Color.red);
-
-        
 
         try
         {
