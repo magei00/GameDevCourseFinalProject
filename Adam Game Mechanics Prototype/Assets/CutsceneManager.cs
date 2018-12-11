@@ -15,6 +15,8 @@ public class CutsceneManager : MonoBehaviour {
     public Image dash_image;
     public Image gravity_image;
 
+    private GameObject shift_sprite;
+
 
     public Sprite character1sprite;
 
@@ -45,9 +47,11 @@ public class CutsceneManager : MonoBehaviour {
         //should probably be in a cutscene manager
         cinema_animator.SetBool("is_on", false);
         NPC_animator.SetBool("is_walking", false);
-        
 
 
+        shift_sprite = GameObject.Find("Shift");
+        SpriteRenderer shift_spriterenderer = shift_sprite.GetComponent<SpriteRenderer>();
+        shift_spriterenderer.enabled = true;
 
         SpriteRenderer NPCsprite = NPC.GetComponent<SpriteRenderer>();
         //Player.transform.position = NPCpos;

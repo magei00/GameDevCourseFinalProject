@@ -12,6 +12,7 @@ TagManager:
   - Dash_Unlockable
   - Gravity_Unlockable
   - CharacterSelectScreen
+  - Keyboard
   layers:
   - Default
   - TransparentFX
