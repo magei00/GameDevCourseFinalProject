@@ -57,6 +57,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Level 10.unity
     guid: a29daf3491fd9624185419735b9db463
   - enabled: 1
+    path: Assets/Scenes/Level OneWay Explain.unity.unity
+    guid: 9e0502fc2ad5c734e8b6a6c57a6daeeb
+  - enabled: 1
     path: Assets/Scenes/Level 11.unity
     guid: 703c64413b28df548b9a2348f7a3a9a7
   - enabled: 1

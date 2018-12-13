@@ -133,6 +133,7 @@ public class AIController : PhysicsObject {
                 gravityModifier = 0;
                 currentState = State.Bribed;
                 guard_animator.SetBool("is_alert", false);
+                guard_animator.SetFloat("speed", 0f);
 
 
             }

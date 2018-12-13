@@ -1364,6 +1364,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c73baae32f526c46a05857a387efc14, type: 2}
   m_IsPrefabAsset: 0
+--- !u!95 &928100536 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 95507010168535828, guid: 0c73baae32f526c46a05857a387efc14,
+    type: 2}
+  m_PrefabInternal: {fileID: 928100535}
 --- !u!1001 &945435384
 Prefab:
   m_ObjectHideFlags: 0
@@ -5019,7 +5024,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 2141092466}
-  effect_animator: {fileID: 0}
+  effect_animator: {fileID: 928100536}
 --- !u!114 &2141092468
 MonoBehaviour:
   m_ObjectHideFlags: 0

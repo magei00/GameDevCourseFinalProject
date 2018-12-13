@@ -49,9 +49,7 @@ public class CutsceneManager : MonoBehaviour {
         NPC_animator.SetBool("is_walking", false);
 
 
-        shift_sprite = GameObject.Find("Shift");
-        SpriteRenderer shift_spriterenderer = shift_sprite.GetComponent<SpriteRenderer>();
-        shift_spriterenderer.enabled = true;
+
 
         SpriteRenderer NPCsprite = NPC.GetComponent<SpriteRenderer>();
         //Player.transform.position = NPCpos;
@@ -59,6 +57,9 @@ public class CutsceneManager : MonoBehaviour {
         switch (newCharacterIndex)
         {
             case 1:
+                shift_sprite = GameObject.Find("Shift");
+                SpriteRenderer shift_spriterenderer = shift_sprite.GetComponent<SpriteRenderer>();
+                shift_spriterenderer.enabled = true;
                 NPC_animator.enabled = false;
                 NPCsprite.enabled = false;
                 gameController.dash_unlocked = true;
