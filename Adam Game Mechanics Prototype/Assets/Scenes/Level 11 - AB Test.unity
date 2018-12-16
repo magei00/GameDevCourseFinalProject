@@ -250,7 +250,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 247148698}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.440002, y: -7.76, z: -10}
+  m_LocalPosition: {x: -5.440001, y: -7.76, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 894932961}
@@ -327,12 +327,12 @@ MonoBehaviour:
   targetVelocity: {x: 0, y: 0}
   velocity: {x: 0, y: 0}
   maxSpeed: 6
-  jumpTakeOffSpeed: 11
+  jumpTakeOffSpeed: 8
   spriteRenderer: {fileID: 393971710}
   animator: {fileID: 393971707}
   adam: {fileID: 21300000, guid: 848ba054e9125f6428f2817cef951a9e, type: 3}
   couch: {fileID: 21300000, guid: 5a7397b351e4a2d4fae4c69c5b7e8350, type: 3}
-  effectObject: {fileID: 2050006115}
+  charges: 1
   char3: {fileID: 21300000, guid: 809fd19eefb03334da9d2426617a68a1, type: 3}
   abilities:
   - {fileID: 0}
@@ -795,7 +795,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.440002, y: -7.76, z: -10}
+  m_LocalPosition: {x: -5.440001, y: -7.76, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

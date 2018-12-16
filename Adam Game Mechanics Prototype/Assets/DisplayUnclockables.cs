@@ -17,9 +17,11 @@ public class DisplayUnclockables : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        gameControllerScript = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameControllerScript>();
         Debug.Log(gameControllerScript.IsCharacterUnlocked(1));
         Debug.Log(gameControllerScript.IsCharacterUnlocked(2));
         Debug.Log(gameControllerScript.IsCharacterUnlocked(3));
+        
         if (gameControllerScript.IsCharacterUnlocked(1))
         {
             dash_image.GetComponent<Image>().color = Color.white;
