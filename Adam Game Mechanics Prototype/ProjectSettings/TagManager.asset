@@ -13,6 +13,8 @@ TagManager:
   - Gravity_Unlockable
   - CharacterSelectScreen
   - Keyboard
+  - EndPanel
+  - EndPanelText
   layers:
   - Default
   - TransparentFX

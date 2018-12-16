@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using System;
+using TMPro;
 
 public class GameControllerScript : MonoBehaviour {
 
@@ -26,7 +27,10 @@ public class GameControllerScript : MonoBehaviour {
         coinText = GameObject.FindGameObjectWithTag("CoinText").GetComponent<Text>();
         DontDestroyOnLoad(this);
 
-       
+    
+
+
+
     }
 
     public void SetCurrentPlayerIndex(int index)
@@ -64,9 +68,17 @@ public class GameControllerScript : MonoBehaviour {
 
     void OnLevelWasLoaded()
     {
+        GameObject endPanelText = GameObject.FindGameObjectWithTag("EndPanelText");
+        if (endPanelText)
+        {
+          endPanelText.GetComponent<Text>().text = "Coins Collected\n" + coins;
+        }
+
         coinText = GameObject.FindGameObjectWithTag("CoinText").GetComponent<Text>();
+
         UpdateCoinText();
-    }
+        currentPlayerIndex = 1;
+  }
 
     // Update is called once per frame
     void Update () {

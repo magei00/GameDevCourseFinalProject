@@ -33,6 +33,7 @@ public class SwitchCharacterMenu : MonoBehaviour {
         // switchMenu.SetActive(true);
     if(!gameController)
       gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameControllerScript>();
+    
     if ((Input.GetButton("Character1") || Input.GetButton("Character2") || Input.GetButton("Character3")) && !pauseMenu.GameIsPaused)
         {
             Debug.Log(gameController.GetCurrentPlayerIndex());
