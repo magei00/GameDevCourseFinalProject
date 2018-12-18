@@ -63,8 +63,7 @@ public class SecruityCameraController : MonoBehaviour {
     }
 
   }
-
-  //Refactor into two functions
+  
   void ShineSpotLight()
   {
 
@@ -73,14 +72,13 @@ public class SecruityCameraController : MonoBehaviour {
     if(playerHit.collider != null && playerHit.collider.tag == "Player" && Mathf.Abs(Vector3.Angle(-transform.up, player.transform.position - transform.position)) < fov / 2)
     {
       
-      playerHit.collider.gameObject.GetComponent<PlayerPlatformerController>().Kill(); // Change to gameover or later to guards chasing you
+      playerHit.collider.gameObject.GetComponent<PlayerPlatformerController>().Kill();
     }
       
 
+    // Perform calculations for camera movement and redrawing
 
-    //TODO Change to use transformation matrices
-
-
+    // Calculate new position for  lower left vertice
     Vector2 leftBound = new Vector3(0, 0, 0);
     float cos = Mathf.Cos((-fov / 2) * Mathf.Deg2Rad);
     float sin = Mathf.Sin((-fov / 2) * Mathf.Deg2Rad);
@@ -95,6 +93,7 @@ public class SecruityCameraController : MonoBehaviour {
       nVertices[1] = leftSide;
     }
 
+    // Calculate new position for  lower right vertice
     Vector2 rightBound = new Vector3(0, 0, 0);
     cos = Mathf.Cos((fov / 2) * Mathf.Deg2Rad);
     sin = Mathf.Sin((fov / 2) * Mathf.Deg2Rad);

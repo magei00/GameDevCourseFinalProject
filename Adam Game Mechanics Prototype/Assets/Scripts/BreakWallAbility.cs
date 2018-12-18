@@ -25,7 +25,6 @@ public class BreakWallAbility : IAbility
     isDashing = false;
     dashTimer = maxDashDuration;
     cooldownTimer = 0.0f;
-      Debug.Log("Reducing cooldown");
   }
 
   void Update()
@@ -39,20 +38,20 @@ public class BreakWallAbility : IAbility
       return;
     if (dashTimer > 0.0f)
     {
+      //Apply velocity for dashing
       Vector2 dashDirection = characterController.spriteRenderer.flipX ? Vector2.left : Vector2.right;
       //rb.velocity = dashDirection * dashSpeed;
       characterController.Movement(dashDirection * dashSpeed * Time.deltaTime, false);
       characterController.gravityModifier = 0.0f;
-      Debug.Log("DASHING");
       dashTimer -= Time.deltaTime;
       isDashing = true;
     }
     else
     {
+      //Stop dashing and start cooldown
       isDashing = false;
       characterController.gravityModifier = 2.0f;
       //rb.velocity = new Vector2(0.0f, 0.0f);
-      Debug.Log("Stopping");
       cooldownTimer = dashCooldown;
       dashTimer = maxDashDuration;
     }
@@ -65,9 +64,9 @@ public class BreakWallAbility : IAbility
 
     if (!characterController)
       characterController = obj.GetComponent<PlayerPlatformerController>();
+    //Check if cooldown is over
     if(cooldownTimer > 0.0f)
     {
-      Debug.Log("COOLDOWN");
       return;
     }
     isDashing = true;

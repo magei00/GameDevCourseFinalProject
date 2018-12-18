@@ -29,10 +29,12 @@ public class PlayerPlatformerController : PhysicsObject
   {
     Application.targetFrameRate = 300;
     characterIndex = 0;
+    //Get all abilities
     spriteRenderer = GetComponent<SpriteRenderer>();
     abilities[0] = GetComponent<EmptyAbility>();
     abilities[1] = GetComponent<BreakWallAbility>();
     abilities[2] = GetComponent<ReverseGravityAbility>();
+
 
     gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameControllerScript>();
     GameObject.Find("Character1Button").GetComponent<Button>().image.color = Color.yellow;
@@ -41,6 +43,8 @@ public class PlayerPlatformerController : PhysicsObject
   protected override void Update()
   {
     base.Update();
+
+    // Reset doublejump charges if grounded
     if (grounded)
     {
       if (groundedToleranceTimer <= 0.0f)
@@ -162,12 +166,15 @@ public class PlayerPlatformerController : PhysicsObject
 
   public void OnTriggerEnter2D(Collider2D other)
   {
+
+    //Collect coins
     if (other.gameObject.tag == "Coin")
     {
       Destroy(other.gameObject);
       gameController.IncrementCoin(1);
     }
 
+    //Enter open door
     if (other.CompareTag("Door"))
     {
       gameController.SaveCoins();

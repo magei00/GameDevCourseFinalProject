@@ -99,6 +99,7 @@ public class AIController : PhysicsObject {
     chaseTimer -= Time.deltaTime;
     if(chaseTimer <= 0.0f)
     {
+      // Stop chasing and go back to patrolling
         currentState = State.Patrolling;
         guard_animator.SetBool("is_alert", false);
         chaseTimer = maxChaseTime;
@@ -106,11 +107,13 @@ public class AIController : PhysicsObject {
         guard_animator.SetFloat("speed", moveSpeed);
         return;
     }
+
+    //Check if there is ground to walk on
     RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(facingDir * 1, 0, 0), (transform.position + new Vector3(facingDir, -1, 0)) - (transform.position + new Vector3(facingDir * 1, 0, 0)), 1.0f);
     Debug.DrawLine(transform.position + new Vector3(facingDir * 1, 0, 0), transform.position + new Vector3(facingDir, -1, 0), Color.red);
-    Debug.Log("Guard: "+hit.collider);
     if (hit.collider == null)
     {
+      // If there is no ground ahead, stop moving
         guard_animator.SetFloat("speed", 0f);
         return;
     }
