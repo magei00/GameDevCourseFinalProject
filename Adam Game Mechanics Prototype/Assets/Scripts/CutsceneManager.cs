@@ -16,6 +16,7 @@ public class CutsceneManager : MonoBehaviour {
     public Image gravity_image;
 
     private GameObject shift_sprite;
+    private GameObject left_sprite;
 
 
     public Sprite character1sprite;
@@ -60,6 +61,11 @@ public class CutsceneManager : MonoBehaviour {
                 shift_sprite = GameObject.Find("Shift");
                 SpriteRenderer shift_spriterenderer = shift_sprite.GetComponent<SpriteRenderer>();
                 shift_spriterenderer.enabled = true;
+
+                left_sprite = GameObject.Find("Left");
+                SpriteRenderer left_spriterenderer = left_sprite.GetComponent<SpriteRenderer>();
+                left_spriterenderer.enabled = true;
+
                 NPC_animator.enabled = false;
                 NPCsprite.enabled = false;
                 gameController.dash_unlocked = true;

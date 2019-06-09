@@ -6,8 +6,8 @@ public class BreakWallAbility : IAbility
 {
 
   public float maxDashDuration = 0.25f;
-  public float dashSpeed = 10.0f;
-  public float dashCooldown = 1.0f;
+  public float dashSpeed = 7.0f;
+  public float dashCooldown = 0.3f;
 
   private float dashTimer;
   private float cooldownTimer;
@@ -51,7 +51,7 @@ public class BreakWallAbility : IAbility
       //Stop dashing and start cooldown
       isDashing = false;
       characterController.gravityModifier = 2.0f;
-      //rb.velocity = new Vector2(0.0f, 0.0f);
+      rb.velocity = new Vector2(0.0f, 0.0f);
       cooldownTimer = dashCooldown;
       dashTimer = maxDashDuration;
     }

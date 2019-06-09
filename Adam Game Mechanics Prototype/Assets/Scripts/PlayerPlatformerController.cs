@@ -9,6 +9,7 @@ public class PlayerPlatformerController : PhysicsObject
 
   public float maxSpeed = 7;
   public float jumpTakeOffSpeed = 7;
+  public float graceTime = 0.1f; //extra time to jump after leaving ledge
 
   public SpriteRenderer spriteRenderer;
   public Animator animator;
@@ -18,6 +19,7 @@ public class PlayerPlatformerController : PhysicsObject
   public int charges = 1;
   private float groundedTolerance = 0.01f;
   private float groundedToleranceTimer;
+  private float offGroundTimer;
   private GameControllerScript gameController;
 
 
@@ -52,15 +54,19 @@ public class PlayerPlatformerController : PhysicsObject
         if (charges == 0)
           charges = 1;
         groundedToleranceTimer = groundedTolerance;
+        
       }
       else
       {
         groundedToleranceTimer -= Time.deltaTime;
+        
       }
+            offGroundTimer = 0.0f;
     }
     else
     {
       groundedToleranceTimer = groundedTolerance;
+      offGroundTimer += Time.deltaTime;
     }
 
     if (Input.GetButtonDown("Ability"))
@@ -89,7 +95,7 @@ public class PlayerPlatformerController : PhysicsObject
       animator.SetFloat("speed", 0f);
     }
 
-    if (Input.GetButtonDown("Jump") && (grounded || (charges > 0 && characterIndex == 0)))
+    if (Input.GetButtonDown("Jump") && (offGroundTimer<=graceTime || (charges > 0 && characterIndex == 0)))
     {
       if (!grounded)
         charges--;

@@ -1059,6 +1059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80bf5318f7d883c46aeee1d960ee795d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cinema_animator: {fileID: 199549449}
   dm: {fileID: 118593883}
 --- !u!1001 &639478715
 PrefabInstance:
@@ -43534,6 +43535,10 @@ PrefabInstance:
       propertyPath: dash_unlocked
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4572701181257484, guid: 06d29db8f6e98f34f8864a82a696009e, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4529151159019146, guid: 06d29db8f6e98f34f8864a82a696009e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4
@@ -43565,10 +43570,6 @@ PrefabInstance:
     - target: {fileID: 4529151159019146, guid: 06d29db8f6e98f34f8864a82a696009e, type: 3}
       propertyPath: m_RootOrder
       value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 4572701181257484, guid: 06d29db8f6e98f34f8864a82a696009e, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06d29db8f6e98f34f8864a82a696009e, type: 3}
