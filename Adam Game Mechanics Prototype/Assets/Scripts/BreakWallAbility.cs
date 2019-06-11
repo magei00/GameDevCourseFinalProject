@@ -51,7 +51,7 @@ public class BreakWallAbility : IAbility
       //Stop dashing and start cooldown
       isDashing = false;
       characterController.gravityModifier = 2.0f;
-      rb.velocity = new Vector2(0.0f, 0.0f);
+      //rb.velocity = new Vector2(0.0f, 0.0f);
       cooldownTimer = dashCooldown;
       dashTimer = maxDashDuration;
     }

@@ -34,6 +34,7 @@ public class CutsceneManager : MonoBehaviour {
         NPC_animator.SetBool("is_walking", true);
         cinema_animator.SetBool("is_on", true);
         
+        
         //set the animation of the player to idle
         player_animator.SetFloat("speed", 0f);
         player_animator.SetBool("is_jumping", false);
