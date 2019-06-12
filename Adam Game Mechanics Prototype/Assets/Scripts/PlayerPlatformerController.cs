@@ -22,8 +22,14 @@ public class PlayerPlatformerController : PhysicsObject
   private float offGroundTimer;
   private GameControllerScript gameController;
 
+    //sounds
+    private AudioSource audioData;
+    public AudioClip coin_sound;
+    public AudioClip jump_sound;
+    public AudioClip land_sound;
 
-  public Sprite char3;
+
+    public Sprite char3;
 
   public IAbility[] abilities = new IAbility[4];
 
@@ -40,7 +46,12 @@ public class PlayerPlatformerController : PhysicsObject
 
     gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameControllerScript>();
     GameObject.Find("Character1Button").GetComponent<Button>().image.color = Color.yellow;
-  }
+
+    //sounds
+    audioData = GetComponent<AudioSource>();
+    
+    
+   }
 
   protected override void Update()
   {
@@ -54,6 +65,7 @@ public class PlayerPlatformerController : PhysicsObject
         if (charges == 0)
           charges = 1;
         groundedToleranceTimer = groundedTolerance;
+        
         
       }
       else
@@ -101,6 +113,7 @@ public class PlayerPlatformerController : PhysicsObject
         charges--;
       animator.SetBool("is_jumping", true);
       velocity.y = jumpTakeOffSpeed;
+      audioData.PlayOneShot(jump_sound,0.7f);
     }
     else if (Input.GetButtonUp("Jump"))
     {
@@ -178,6 +191,7 @@ public class PlayerPlatformerController : PhysicsObject
     {
       Destroy(other.gameObject);
       gameController.IncrementCoin(1);
+      audioData.PlayOneShot(coin_sound,1f);
     }
 
     //Enter open door
