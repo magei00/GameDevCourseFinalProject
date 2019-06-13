@@ -69,10 +69,10 @@ public class GameControllerScript : MonoBehaviour {
     void OnLevelWasLoaded()
     {
         GameObject endPanelText = GameObject.FindGameObjectWithTag("EndPanelText");
-        if (endPanelText)
+        /*if (endPanelText)
         {
           endPanelText.GetComponent<Text>().text = "Coins Collected\n" + coins;
-        }
+        }*/
 
         coinText = GameObject.FindGameObjectWithTag("CoinText").GetComponent<Text>();
 

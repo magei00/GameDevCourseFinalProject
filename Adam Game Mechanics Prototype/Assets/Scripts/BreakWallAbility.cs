@@ -26,7 +26,7 @@ public class BreakWallAbility : IAbility
   {
     characterController = GetComponent<PlayerPlatformerController>();
     audioSource = GetComponent<AudioSource>();
-    breakSound = (AudioClip) AssetDatabase.LoadAssetAtPath("Assets/Sounds/break2 by projectsu012.wav", typeof(AudioClip));
+    breakSound = (AudioClip) Resources.Load("break2 by projectsu012");
     rb = GetComponent<Rigidbody2D>();
     isDashing = false;
     dashTimer = maxDashDuration;

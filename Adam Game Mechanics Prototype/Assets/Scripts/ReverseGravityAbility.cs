@@ -19,7 +19,7 @@ public class ReverseGravityAbility : IAbility
     characterController = GetComponent<PlayerPlatformerController>();
     groundedToleranceTimer = groundedTolerance;
     audioSource = GetComponent<AudioSource>();
-    gravSound = (AudioClip)AssetDatabase.LoadAssetAtPath("Assets/Sounds/gravity by mattix.wav", typeof(AudioClip));
+    gravSound = (AudioClip)Resources.Load("gravity by mattix");
     }
 
   override public void PerformAbility(PhysicsObject obj)
