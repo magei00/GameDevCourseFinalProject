@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
+using UnityEditor;
 
 public class BreakWallAbility : IAbility
 {
@@ -12,15 +14,19 @@ public class BreakWallAbility : IAbility
   private float dashTimer;
   private float cooldownTimer;
   private bool isDashing;
-  
 
 
-  private PlayerPlatformerController characterController;
+  private AudioSource audioSource;
+    private AudioClip breakSound;
+    private PlayerPlatformerController characterController;
   private Rigidbody2D rb;
+
   // Use this for initialization
   void Start()
   {
     characterController = GetComponent<PlayerPlatformerController>();
+    audioSource = GetComponent<AudioSource>();
+    breakSound = (AudioClip) AssetDatabase.LoadAssetAtPath("Assets/Sounds/break2 by projectsu012.wav", typeof(AudioClip));
     rb = GetComponent<Rigidbody2D>();
     isDashing = false;
     dashTimer = maxDashDuration;
@@ -79,6 +85,7 @@ public class BreakWallAbility : IAbility
   {
     if (isDashing && collision.gameObject.tag == "Breakable")
     {
+            audioSource.PlayOneShot(breakSound);
       Destroy(collision.gameObject);
     }
     

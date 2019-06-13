@@ -23,7 +23,11 @@ public class AIController : PhysicsObject {
   public Transform patrolPoint; // Maybe extend to a list later if more complexity is needed
   public Vector3 currentDestination;
 
+    private AudioSource audio_source;
+    
+
   enum State { Patrolling, Waiting, Chasing, Bribed}
+  private State previousState;
   private State currentState;
 
   public float maxChaseTime = 2.0f;
@@ -40,11 +44,14 @@ public class AIController : PhysicsObject {
         target = GameObject.FindGameObjectWithTag("Player").transform;
         spriteRenderer = GetComponent<SpriteRenderer>();
         currentState = State.Patrolling;
+        previousState = State.Patrolling;
         spawnPosition = transform.position;
         currentDestination = patrolPoint.position;
         waitTimer = maxWaitTime;
         moveSpeed = baseMoveSpeed;
         chaseMoveSpeed = baseMoveSpeed * 1.3f;
+
+        audio_source = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -70,6 +77,14 @@ public class AIController : PhysicsObject {
         default:
         break;
     }
+
+    //play sound
+    if((previousState==State.Patrolling|| previousState == State.Waiting) && currentState==State.Chasing)
+        {
+            audio_source.Play();
+
+        }
+        previousState = currentState;
   }
 
     private void Wait()
@@ -136,6 +151,7 @@ public class AIController : PhysicsObject {
                 gravityModifier = 0;
                 currentState = State.Bribed;
                 guard_animator.SetBool("is_alert", false);
+                guard_animator.SetBool("is_bribed", true);
                 guard_animator.SetFloat("speed", 0f);
 
 

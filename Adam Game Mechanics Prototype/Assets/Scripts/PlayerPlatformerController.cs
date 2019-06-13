@@ -26,7 +26,7 @@ public class PlayerPlatformerController : PhysicsObject
     private AudioSource audioData;
     public AudioClip coin_sound;
     public AudioClip jump_sound;
-    public AudioClip land_sound;
+    public AudioClip key_sound;
 
 
     public Sprite char3;
@@ -200,6 +200,11 @@ public class PlayerPlatformerController : PhysicsObject
       gameController.SaveCoins();
       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+
+    if (other.CompareTag("Key"))
+    {
+            audioData.PlayOneShot(key_sound, 1f);
+        }
   }
   public void Kill()
   {

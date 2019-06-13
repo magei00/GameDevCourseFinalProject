@@ -586,7 +586,7 @@ MonoBehaviour:
   charges: 1
   coin_sound: {fileID: 8300000, guid: 6e2090ee796956c4fbddd8eefe2ba507, type: 3}
   jump_sound: {fileID: 8300000, guid: 0ed8ffaf486216f45b123adb83f5236b, type: 3}
-  land_sound: {fileID: 8300000, guid: ebfd5f39f6793d543a135c6f23d3fa3f, type: 3}
+  key_sound: {fileID: 8300000, guid: 3be0a0e1e16a3504789a780d73baa465, type: 3}
   char3: {fileID: 21300000, guid: 809fd19eefb03334da9d2426617a68a1, type: 3}
   abilities:
   - {fileID: 0}
